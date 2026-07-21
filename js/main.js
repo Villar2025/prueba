@@ -137,3 +137,54 @@ if ("IntersectionObserver" in window) {
     }
 
 });
+
+/* ==========================
+   VISOR DE IMÁGENES
+========================== */
+
+const modal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+const closeModal = document.querySelector(".image-modal-close");
+
+document
+    .querySelectorAll(".product-image img, .product-images img")
+    .forEach((img)=>{
+
+        img.addEventListener("click",()=>{
+
+            modal.classList.add("active");
+
+            modalImage.src = img.src;
+            modalImage.alt = img.alt;
+
+        });
+
+    });
+
+function hideModal(){
+
+    modal.classList.remove("active");
+
+}
+
+closeModal.addEventListener("click",hideModal);
+
+modal.addEventListener("click",(e)=>{
+
+    if(e.target===modal){
+
+        hideModal();
+
+    }
+
+});
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key==="Escape"){
+
+        hideModal();
+
+    }
+
+});
