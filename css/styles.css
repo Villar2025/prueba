@@ -1453,3 +1453,103 @@ header.header-scrolled {
         transform: none;
     }
 }
+
+/* ==========================
+   VISOR DE IMÁGENES
+========================== */
+
+.image-modal{
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.88);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:9999;
+
+    padding:30px;
+
+}
+
+.image-modal.active{
+
+    opacity:1;
+    visibility:visible;
+
+}
+
+.image-modal-content{
+
+    max-width:92%;
+    max-height:92%;
+
+    border-radius:16px;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
+
+    animation:zoomImage .25s ease;
+
+}
+
+.image-modal-close{
+
+    position:absolute;
+
+    top:20px;
+    right:30px;
+
+    color:white;
+
+    font-size:45px;
+
+    cursor:pointer;
+
+    user-select:none;
+
+}
+
+.product-image img,
+.product-images img{
+
+    cursor:zoom-in;
+
+}
+
+@keyframes zoomImage{
+
+    from{
+
+        transform:scale(.85);
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+        opacity:1;
+
+    }
+
+}
+
+.coverage-note{
+
+    margin-top:12px;
+
+    font-size:.85rem;
+
+    color:#777;
+
+    font-style:italic;
+
+}
