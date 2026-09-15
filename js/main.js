@@ -136,6 +136,88 @@ if ("IntersectionObserver" in window) {
 
     }
 
+        // ==========================
+    // MENÚ MÓVIL
+    // ==========================
+
+    const mobileMenuToggle =
+        document.querySelector(".mobile-menu-toggle");
+
+    const mainNavigation =
+        document.getElementById("main-navigation");
+
+    if (mobileMenuToggle && mainNavigation) {
+
+        const closeMobileMenu = () => {
+            mainNavigation.classList.remove("mobile-open");
+            mobileMenuToggle.classList.remove("active");
+
+            mobileMenuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            mobileMenuToggle.setAttribute(
+                "aria-label",
+                "Abrir menú"
+            );
+        };
+
+        mobileMenuToggle.addEventListener("click", () => {
+
+            const isOpen =
+                mainNavigation.classList.toggle("mobile-open");
+
+            mobileMenuToggle.classList.toggle(
+                "active",
+                isOpen
+            );
+
+            mobileMenuToggle.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
+
+            mobileMenuToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Cerrar menú"
+                    : "Abrir menú"
+            );
+
+        });
+
+        // Cierra el menú al seleccionar una opción
+        mainNavigation
+            .querySelectorAll("a")
+            .forEach((link) => {
+
+                link.addEventListener("click", () => {
+                    closeMobileMenu();
+                });
+
+            });
+
+        // Cierra con la tecla Escape
+        document.addEventListener("keydown", (event) => {
+
+            if (event.key === "Escape") {
+                closeMobileMenu();
+            }
+
+        });
+
+        // Si regresamos a escritorio, limpia el menú móvil
+        window.addEventListener("resize", () => {
+
+            if (window.innerWidth > 900) {
+                closeMobileMenu();
+            }
+
+        });
+
+    }
+
 });
 
 /* ==========================
@@ -188,3 +270,5 @@ document.addEventListener("keydown",(e)=>{
     }
 
 });
+
+
