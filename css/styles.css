@@ -232,6 +232,22 @@ header {
         transform 0.2s ease;
 }
 
+/* Puente invisible entre Recursos y el menú desplegable */
+@media (min-width: 901px) {
+
+    .nav-dropdown-menu::before {
+        content: "";
+        position: absolute;
+
+        left: 0;
+        right: 0;
+        top: -12px;
+
+        height: 12px;
+    }
+
+}
+
 /* Desplegable con mouse: solo computadora */
 @media (min-width: 901px) and (hover: hover) and (pointer: fine) {
 
