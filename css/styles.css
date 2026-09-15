@@ -1374,15 +1374,35 @@ header {
         position: static;
     
         width: 100%;
-        padding: 0 0 8px 14px;
+        max-height: 0;
+        overflow: hidden;
     
-        opacity: 1;
-        visibility: visible;
+        padding: 0 0 0 14px;
+    
+        opacity: 0;
+        visibility: hidden;
         transform: none;
     
         border: none;
         box-shadow: none;
         background: transparent;
+    
+        transition:
+            max-height 0.3s ease,
+            opacity 0.25s ease,
+            padding 0.25s ease;
+    }
+    
+    .nav-dropdown.mobile-submenu-open .nav-dropdown-menu {
+        max-height: 220px;
+        padding: 6px 0 10px 14px;
+    
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-dropdown.mobile-submenu-open .nav-dropdown-toggle span {
+        transform: rotate(180deg);
     }
     
     .nav-dropdown-item {
