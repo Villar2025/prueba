@@ -136,7 +136,7 @@ if ("IntersectionObserver" in window) {
 
     }
 
-        // ==========================
+    // ==========================
     // MENÚ MÓVIL
     // ==========================
 
@@ -145,6 +145,12 @@ if ("IntersectionObserver" in window) {
 
     const mainNavigation =
         document.getElementById("main-navigation");
+
+    const resourcesDropdown =
+        document.querySelector(".nav-dropdown");
+    
+    const resourcesToggle =
+        document.querySelector(".nav-dropdown-toggle");
 
     if (mobileMenuToggle && mainNavigation) {
 
@@ -161,6 +167,41 @@ if ("IntersectionObserver" in window) {
                 "aria-label",
                 "Abrir menú"
             );
+
+            if (resourcesDropdown) {
+                resourcesDropdown.classList.remove(
+                    "mobile-submenu-open"
+                );
+            }
+            
+            if (resourcesToggle) {
+                resourcesToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+            }
+
+            if (resourcesDropdown && resourcesToggle) {
+
+                resourcesToggle.addEventListener("click", () => {
+            
+                    if (window.innerWidth <= 900) {
+            
+                        const isOpen =
+                            resourcesDropdown.classList.toggle(
+                                "mobile-submenu-open"
+                            );
+            
+                        resourcesToggle.setAttribute(
+                            "aria-expanded",
+                            isOpen ? "true" : "false"
+                        );
+            
+                    }
+            
+                });
+            
+            }
         };
 
         mobileMenuToggle.addEventListener("click", () => {
@@ -270,5 +311,6 @@ document.addEventListener("keydown",(e)=>{
     }
 
 });
+
 
 
