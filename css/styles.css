@@ -232,18 +232,22 @@ header {
         transform 0.2s ease;
 }
 
-.nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown:focus-within .nav-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+/* Desplegable con mouse: solo computadora */
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
 
-    transform: translate(-50%, 0);
-}
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
 
-.nav-dropdown:hover .nav-dropdown-toggle span,
-.nav-dropdown:focus-within .nav-dropdown-toggle span {
-    transform: rotate(180deg);
+        transform: translate(-50%, 0);
+    }
+
+    .nav-dropdown:hover .nav-dropdown-toggle span,
+    .nav-dropdown:focus-within .nav-dropdown-toggle span {
+        transform: rotate(180deg);
+    }
 }
 
 .nav-dropdown-item {
