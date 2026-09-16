@@ -579,98 +579,322 @@ button {
     color: var(--white);
 }
 
-/* DECISION FLOW */
+/* =========================
+   DIAGRAMA DE PRELAVADO
+========================= */
 
-.decision-flow {
+.prewash-advice {
     max-width: 920px;
-    margin: 0 auto 65px;
-    padding: 46px;
-
-    border: 1px solid var(--line);
-    background: var(--cream);
+    margin: 0 auto 26px;
+    padding: 20px 24px;
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 16px;
+    align-items: start;
+    border: 1px solid rgba(169, 165, 92, 0.45);
+    background: rgba(169, 165, 92, 0.10);
 }
 
-.decision-box {
-    padding: 22px;
-
-    text-align: center;
-
-    border: 1px solid rgba(30, 74, 59, 0.2);
-    background: var(--cream-light);
-}
-
-.decision-box span {
-    display: block;
-    margin-bottom: 5px;
-
+.prewash-advice-mark {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
     font-family: "Archivo", sans-serif;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-
-    color: var(--gold);
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--green-dark);
+    background: var(--gold);
 }
 
-.decision-box strong {
+.prewash-advice strong {
     display: block;
+    margin-bottom: 3px;
     font-family: "Archivo", sans-serif;
-    font-size: 16px;
+    font-size: 12px;
     color: var(--green);
 }
 
-.decision-box p {
-    margin-top: 7px;
+.prewash-advice p {
     font-size: 12px;
-    color: rgba(43, 43, 38, 0.62);
+    line-height: 1.7;
+    color: rgba(43, 43, 38, 0.65);
 }
 
-.decision-box-main {
-    max-width: 560px;
-    margin: 0 auto 30px;
+.prewash-flow {
+    max-width: 920px;
+    margin: 0 auto 70px;
+    padding: 52px 54px;
+    border: 1px solid var(--line);
+    background:
+        linear-gradient(rgba(30, 74, 59, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 74, 59, 0.035) 1px, transparent 1px),
+        var(--cream);
+    background-size: 28px 28px;
 }
 
-.decision-columns {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-}
-
-.decision-branch {
+.flow-stage {
     text-align: center;
 }
 
-.decision-answer {
-    display: inline-block;
+.flow-stage-label,
+.flow-question-kicker,
+.flow-final-kicker {
+    display: block;
     margin-bottom: 8px;
-
     font-family: "Archivo", sans-serif;
-    font-size: 10px;
-    font-weight: 800;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--gold);
 }
 
-.decision-columns-bottom {
-    margin-top: 24px;
-}
-
-.decision-final {
-    margin: 28px auto 0;
-    padding: 17px 22px;
-
-    max-width: 560px;
-
-    text-align: center;
-
-    font-family: "Archivo", sans-serif;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-
+.flow-start-card {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 20px 28px;
     color: var(--white);
     background: var(--green);
+    box-shadow: 0 14px 34px rgba(18, 40, 31, 0.12);
+}
+
+.flow-start-card strong {
+    display: block;
+    font-family: "Archivo", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.flow-start-card span {
+    display: block;
+    margin-top: 2px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.62);
+}
+
+.flow-down {
+    position: relative;
+    width: 28px;
+    height: 48px;
+    margin: 0 auto;
+}
+
+.flow-down span::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 36px;
+    background: var(--gold);
+    transform: translateX(-50%);
+}
+
+.flow-down span::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 2px;
+    width: 8px;
+    height: 8px;
+    border-right: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.flow-question-card {
+    position: relative;
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 25px 30px 25px 58px;
+    border: 1px solid rgba(30, 74, 59, 0.22);
+    background: var(--cream-light);
+    box-shadow: 0 10px 28px rgba(18, 40, 31, 0.06);
+}
+
+.flow-question-icon {
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-family: "Archivo", sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    color: var(--green-dark);
+    background: var(--gold);
+    transform: translateY(-50%);
+}
+
+.flow-question-card h3 {
+    font-family: "Archivo", sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.35;
+    color: var(--green);
+}
+
+.flow-branch-grid {
+    position: relative;
+    margin-top: 42px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 34px;
+}
+
+.flow-branch-grid::before {
+    content: "";
+    position: absolute;
+    top: -24px;
+    left: 25%;
+    right: 25%;
+    height: 1px;
+    background: var(--gold);
+}
+
+.flow-branch {
+    position: relative;
+    padding-top: 12px;
+}
+
+.flow-branch::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -24px;
+    width: 1px;
+    height: 24px;
+    background: var(--gold);
+    transform: translateX(-50%);
+}
+
+.flow-branch-label {
+    display: table;
+    margin: 0 auto 10px;
+    padding: 5px 10px;
+    border: 1px solid rgba(169, 165, 92, 0.55);
+    background: var(--cream);
+    font-family: "Archivo", sans-serif;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--green);
+}
+
+.flow-action-card,
+.flow-result-card {
+    min-height: 132px;
+    padding: 22px;
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 14px;
+    border: 1px solid var(--line);
+    background: var(--cream-light);
+}
+
+.flow-action-card-highlight {
+    border-color: rgba(169, 165, 92, 0.48);
+    background: rgba(169, 165, 92, 0.10);
+}
+
+.flow-action-card-muted {
+    background: rgba(255, 255, 255, 0.52);
+}
+
+.flow-card-number {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-family: "Archivo", sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--white);
+    background: var(--green);
+}
+
+.flow-action-card h4,
+.flow-result-card h4 {
+    margin-bottom: 6px;
+    font-family: "Archivo", sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.35;
+    color: var(--green);
+}
+
+.flow-action-card p,
+.flow-result-card p {
+    font-size: 11px;
+    line-height: 1.65;
+    color: rgba(43, 43, 38, 0.62);
+}
+
+.flow-result-card p strong {
+    color: var(--green);
+}
+
+.flow-merge {
+    position: relative;
+    margin: 31px auto 0;
+    text-align: center;
+}
+
+.flow-merge::before {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 22px;
+    margin: 0 auto 9px;
+    background: var(--gold);
+}
+
+.flow-merge span {
+    display: inline-block;
+    padding: 5px 9px;
+    font-family: "Archivo", sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(30, 74, 59, 0.65);
+    background: var(--cream);
+}
+
+.flow-down-final {
+    margin-top: 8px;
+}
+
+.flow-final-card {
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 23px 30px;
+    text-align: center;
+    color: var(--white);
+    background: var(--green);
+    box-shadow: 0 15px 36px rgba(18, 40, 31, 0.12);
+}
+
+.flow-final-card .flow-final-kicker {
+    color: var(--gold);
+}
+
+.flow-final-card strong {
+    display: block;
+    font-family: "Archivo", sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.01em;
 }
 
 .method-grid {
@@ -1304,16 +1528,7 @@ button {
     .training-product-card-wide {
         grid-column: auto;
     }
-
-    .decision-flow {
-        padding: 30px 22px;
-    }
-
-    .decision-columns {
-        grid-template-columns: 1fr;
-    }
-
-    .fabric-rules {
+.fabric-rules {
         grid-template-columns: 1fr;
     }
 
@@ -1411,6 +1626,70 @@ button {
     .training-alert-icon {
         width: 42px;
         height: 42px;
+    }
+
+
+    .prewash-advice {
+        grid-template-columns: 36px 1fr;
+        padding: 18px;
+    }
+
+    .prewash-advice-mark {
+        width: 32px;
+        height: 32px;
+    }
+
+    .prewash-flow {
+        padding: 32px 18px;
+        background-size: 24px 24px;
+    }
+
+    .flow-question-card {
+        padding: 22px 18px 22px 42px;
+    }
+
+    .flow-question-icon {
+        left: -10px;
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+    }
+
+    .flow-question-card h3 {
+        font-size: 16px;
+    }
+
+    .flow-branch-grid {
+        margin-top: 28px;
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .flow-branch-grid::before,
+    .flow-branch::before {
+        display: none;
+    }
+
+    .flow-branch {
+        padding-top: 0;
+    }
+
+    .flow-branch-label {
+        margin-left: 0;
+    }
+
+    .flow-action-card,
+    .flow-result-card {
+        min-height: 0;
+    }
+
+    .flow-merge {
+        margin-top: 22px;
+    }
+
+    .flow-start-card,
+    .flow-final-card {
+        width: 100%;
     }
 
     .method-card,
