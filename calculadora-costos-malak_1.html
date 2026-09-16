@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Calculadora de Costos de Lavandería | MALAK</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/calculadora.css">
+</head>
+
+<body>
+
+<header class="calculator-header">
+    <div class="calculator-header-inner">
+        <a href="./index.html" class="calculator-brand" aria-label="Ir al inicio de MALAK">
+            <img src="./img/logo.png" alt="MALAK Distribuidora de Blancos" class="calculator-logo">
+        </a>
+
+        <nav class="calculator-header-nav" aria-label="Navegación de calculadora">
+            <a href="./index.html">Inicio</a>
+            <a href="./capacitacion.html">Capacitación</a>
+            <a href="#calculadora" class="calculator-header-button">Calculadora</a>
+        </nav>
+
+        <button class="calculator-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<main>
+
+<section class="calculator-hero">
+    <div class="calculator-shell calculator-hero-grid">
+
+        <div class="calculator-hero-copy">
+            <span class="calculator-eyebrow">Herramienta para hotelería</span>
+
+            <h1>Calcula el costo real de cada carga de lavandería</h1>
+
+            <p class="calculator-hero-lead">
+                Define los kilos de blancos, selecciona los procesos que utilizarás
+                y elige la presentación que compras de cada producto.
+                El costo se actualiza al instante.
+            </p>
+
+            <div class="calculator-hero-tags">
+                <span>Por carga</span>
+                <span>Por kilogramo</span>
+                <span>Prelavado</span>
+                <span>Lavado</span>
+                <span>Acabado</span>
+            </div>
+        </div>
+
+        <aside class="calculator-hero-card">
+            <span class="calculator-panel-label">Cómo usarla</span>
+
+            <div class="calculator-route-step">
+                <strong>01</strong>
+                <div>
+                    <span>Define los kilos</span>
+                    <p>Indica cuánto pesa la carga que vas a procesar.</p>
+                </div>
+            </div>
+
+            <div class="calculator-route-line"></div>
+
+            <div class="calculator-route-step">
+                <strong>02</strong>
+                <div>
+                    <span>Elige tu proceso</span>
+                    <p>Selecciona lavado, prelavado y acabado según la carga.</p>
+                </div>
+            </div>
+
+            <div class="calculator-route-line"></div>
+
+            <div class="calculator-route-step">
+                <strong>03</strong>
+                <div>
+                    <span>Consulta el costo</span>
+                    <p>Revisa el total estimado y el costo por kilogramo.</p>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+</section>
+
+<section class="calculator-section" id="calculadora">
+    <div class="calculator-shell calculator-layout">
+
+        <div class="calculator-main">
+
+            <section class="calculator-panel calculator-kilos-panel">
+                <div class="panel-heading">
+                    <div>
+                        <span class="panel-kicker">Paso 1</span>
+                        <h2>Kilos de blancos</h2>
+                        <p>Ingresa el peso total de la carga que vas a procesar.</p>
+                    </div>
+
+                    <div class="kg-stepper">
+                        <button type="button" id="kgMinus" aria-label="Restar kilos">−</button>
+
+                        <div class="kg-input-wrap">
+                            <input id="kgInput" type="number" min="0" step="any" value="20" inputmode="decimal" aria-label="Kilos de blancos">
+                            <span>kg</span>
+                        </div>
+
+                        <button type="button" id="kgPlus" aria-label="Sumar kilos">+</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="calculator-panel">
+                <div class="panel-heading">
+                    <div>
+                        <span class="panel-kicker">Paso 2</span>
+                        <h2>Presentación que compras</h2>
+                        <p>
+                            La calculadora usa por defecto la presentación con mejor precio
+                            por unidad. Puedes cambiarla si compras otro tamaño.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="size-grid" id="sizeGrid"></div>
+            </section>
+
+            <section class="calculator-panel">
+                <div class="panel-heading">
+                    <div>
+                        <span class="panel-kicker">Paso 3</span>
+                        <h2>Escenarios comunes</h2>
+                        <p>Selecciona una combinación rápida o arma el proceso manualmente.</p>
+                    </div>
+
+                    <button type="button" id="resetCalculator" class="reset-button">
+                        Restablecer
+                    </button>
+                </div>
+
+                <div class="preset-grid" id="presetRow"></div>
+            </section>
+
+            <section class="calculator-panel calculator-process-panel">
+                <div class="panel-heading">
+                    <div>
+                        <span class="panel-kicker">Paso 4</span>
+                        <h2>Procesos de lavandería</h2>
+                        <p>Activa únicamente los procesos que aplicarás en esta carga.</p>
+                    </div>
+                </div>
+
+                <div class="process-group">
+                    <div class="process-group-heading">
+                        <span>01</span>
+                        <div>
+                            <strong>Lavado en máquina</strong>
+                            <p>Procesos aplicados durante el ciclo de lavado.</p>
+                        </div>
+                    </div>
+                    <div id="rows-lavado" class="process-list"></div>
+                </div>
+
+                <div class="process-group">
+                    <div class="process-group-heading">
+                        <span>02</span>
+                        <div>
+                            <strong>Prelavado</strong>
+                            <p>Tratamientos previos para manchas o cargas especiales.</p>
+                        </div>
+                    </div>
+                    <div id="rows-prelavado" class="process-list"></div>
+                </div>
+
+                <div class="process-group">
+                    <div class="process-group-heading">
+                        <span>03</span>
+                        <div>
+                            <strong>Acabado y superficies</strong>
+                            <p>Suavizado y aplicaciones adicionales.</p>
+                        </div>
+                    </div>
+                    <div id="rows-acabado" class="process-list"></div>
+                </div>
+            </section>
+
+            <aside class="calculator-note">
+                <div class="calculator-note-icon">i</div>
+                <div>
+                    <strong>Importante</strong>
+                    <p>
+                        Soft y Somthin’else incluyen estimaciones de uso en algunos escenarios.
+                        Swipe se calcula con solución normal 1:12. Los costos se ajustan
+                        automáticamente según la presentación seleccionada.
+                    </p>
+                </div>
+            </aside>
+
+        </div>
+
+        <aside class="calculator-summary">
+            <div class="summary-card">
+
+                <span class="summary-kicker">Resultado estimado</span>
+
+                <div class="summary-main">
+                    <span>Costo total de la carga</span>
+                    <strong id="totalValue">$0.00</strong>
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <div class="summary-stats">
+                    <div>
+                        <span>Costo por kg</span>
+                        <strong id="perKgValue">$0.00 / kg</strong>
+                    </div>
+
+                    <div>
+                        <span>Carga</span>
+                        <strong id="kgEcho">0 kg</strong>
+                    </div>
+                </div>
+
+                <div class="summary-help">
+                    <strong>¿Qué incluye?</strong>
+                    <p>
+                        Solo los procesos que tengas activados. Los subtotales se muestran
+                        junto a cada proceso para que puedas identificar qué está generando el costo.
+                    </p>
+                </div>
+
+                <a href="./capacitacion.html" class="summary-link">
+                    Ver guía de capacitación
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </div>
+        </aside>
+
+    </div>
+</section>
+
+<section class="calculator-disclaimer">
+    <div class="calculator-shell">
+        <p>
+            Los resultados son estimaciones basadas en los precios, dosis y rendimientos
+            configurados en esta herramienta. Los costos reales pueden variar según el
+            método de aplicación, la dosificación utilizada y las actualizaciones de precios.
+        </p>
+    </div>
+</section>
+
+</main>
+
+<footer class="calculator-footer">
+    <div class="calculator-shell calculator-footer-inner">
+        <img src="./img/MALAK3.png" alt="MALAK Distribuidora de Blancos" class="calculator-footer-logo">
+
+        <p>Herramientas de apoyo para clientes hoteleros · Oaxaca</p>
+
+        <a href="./index.html">Volver al sitio principal →</a>
+    </div>
+</footer>
+
+<script src="./js/calculadora.js"></script>
+
+</body>
+</html>
