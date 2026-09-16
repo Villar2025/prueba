@@ -1525,9 +1525,7 @@ header {
     .header-inner { padding: 14px 18px; }
     .phone-link { display: none; }
     .btn-header {
-        min-height: 38px;
-        padding: 9px 12px;
-        font-size: 9.5px;
+        display: none;
     }
     .logo-text { font-size: 18px; }
     .logo-sub { font-size: 7px; }
