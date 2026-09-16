@@ -8,60 +8,60 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Sombra del encabezado al hacer scroll
-const header = document.querySelector("header");
+    const header = document.querySelector("header");
 
-const updateHeader = () => {
-    if (!header) return;
+    const updateHeader = () => {
+        if (!header) return;
 
-    header.classList.toggle(
-        "header-scrolled",
-        window.scrollY > 20
-    );
-};
+        header.classList.toggle(
+            "header-scrolled",
+            window.scrollY > 20
+        );
+    };
 
-updateHeader();
+    updateHeader();
 
-window.addEventListener(
-    "scroll",
-    updateHeader,
-    { passive: true }
-);
-
-// Animaciones de aparición al desplazarse
-const revealElements = document.querySelectorAll(".reveal");
-
-if ("IntersectionObserver" in window) {
-
-    const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-
-            entries.forEach((entry) => {
-
-                if (!entry.isIntersecting) return;
-
-                entry.target.classList.add("reveal-visible");
-                observer.unobserve(entry.target);
-
-            });
-
-        },
-        {
-            threshold: 0.12,
-            rootMargin: "0px 0px -50px 0px"
-        }
+    window.addEventListener(
+        "scroll",
+        updateHeader,
+        { passive: true }
     );
 
-    revealElements.forEach((element) => {
-        revealObserver.observe(element);
-    });
+    // Animaciones de aparición al desplazarse
+    const revealElements = document.querySelectorAll(".reveal");
 
-} else {
+    if ("IntersectionObserver" in window) {
 
-    revealElements.forEach((element) => {
-        element.classList.add("reveal-visible");
-    });
+        const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
 
-}
+                entries.forEach((entry) => {
+
+                    if (!entry.isIntersecting) return;
+
+                    entry.target.classList.add("reveal-visible");
+                    observer.unobserve(entry.target);
+
+                });
+
+            },
+            {
+                threshold: 0.12,
+                rootMargin: "0px 0px -50px 0px"
+            }
+        );
+
+        revealElements.forEach((element) => {
+            revealObserver.observe(element);
+        });
+
+    } else {
+
+        revealElements.forEach((element) => {
+            element.classList.add("reveal-visible");
+        });
+
+    }
 
     // Formulario de contacto
     const contactForm = document.getElementById("contact-form");
@@ -86,7 +86,7 @@ if ("IntersectionObserver" in window) {
 
             const proveedor =
                 document.getElementById("proveedor")?.value.trim() || "";
-            
+
             const habitaciones =
                 document.getElementById("habitaciones")?.value.trim() || "";
 
@@ -148,13 +148,31 @@ if ("IntersectionObserver" in window) {
 
     const resourcesDropdown =
         document.querySelector(".nav-dropdown");
-    
+
     const resourcesToggle =
         document.querySelector(".nav-dropdown-toggle");
 
     if (mobileMenuToggle && mainNavigation) {
 
+        const closeResourcesSubmenu = () => {
+
+            if (resourcesDropdown) {
+                resourcesDropdown.classList.remove(
+                    "mobile-submenu-open"
+                );
+            }
+
+            if (resourcesToggle) {
+                resourcesToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+            }
+
+        };
+
         const closeMobileMenu = () => {
+
             mainNavigation.classList.remove("mobile-open");
             mobileMenuToggle.classList.remove("active");
 
@@ -168,42 +186,11 @@ if ("IntersectionObserver" in window) {
                 "Abrir menú"
             );
 
-            if (resourcesDropdown) {
-                resourcesDropdown.classList.remove(
-                    "mobile-submenu-open"
-                );
-            }
-            
-            if (resourcesToggle) {
-                resourcesToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-            }
+            closeResourcesSubmenu();
 
-            if (resourcesDropdown && resourcesToggle) {
-
-                resourcesToggle.addEventListener("click", () => {
-            
-                    if (window.innerWidth <= 900) {
-            
-                        const isOpen =
-                            resourcesDropdown.classList.toggle(
-                                "mobile-submenu-open"
-                            );
-            
-                        resourcesToggle.setAttribute(
-                            "aria-expanded",
-                            isOpen ? "true" : "false"
-                        );
-            
-                    }
-            
-                });
-            
-            }
         };
 
+        // Abrir / cerrar menú principal
         mobileMenuToggle.addEventListener("click", () => {
 
             const isOpen =
@@ -226,9 +213,39 @@ if ("IntersectionObserver" in window) {
                     : "Abrir menú"
             );
 
+            if (!isOpen) {
+                closeResourcesSubmenu();
+            }
+
         });
 
-        // Cierra el menú al seleccionar una opción
+        // Abrir / cerrar Recursos en móvil
+        if (resourcesDropdown && resourcesToggle) {
+
+            resourcesToggle.addEventListener("click", (event) => {
+
+                if (window.innerWidth <= 900) {
+
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    const isOpen =
+                        resourcesDropdown.classList.toggle(
+                            "mobile-submenu-open"
+                        );
+
+                    resourcesToggle.setAttribute(
+                        "aria-expanded",
+                        isOpen ? "true" : "false"
+                    );
+
+                }
+
+            });
+
+        }
+
+        // Cierra el menú al seleccionar una opción real
         mainNavigation
             .querySelectorAll("a")
             .forEach((link) => {
@@ -239,7 +256,7 @@ if ("IntersectionObserver" in window) {
 
             });
 
-        // Cierra con la tecla Escape
+        // Cierra con Escape
         document.addEventListener("keydown", (event) => {
 
             if (event.key === "Escape") {
@@ -248,7 +265,7 @@ if ("IntersectionObserver" in window) {
 
         });
 
-        // Si regresamos a escritorio, limpia el menú móvil
+        // Si regresamos a escritorio, limpia el estado móvil
         window.addEventListener("resize", () => {
 
             if (window.innerWidth > 900) {
@@ -269,48 +286,43 @@ const modal = document.getElementById("imageModal");
 const modalImage = document.getElementById("modalImage");
 const closeModal = document.querySelector(".image-modal-close");
 
-document
-    .querySelectorAll(".product-image img, .product-images img")
-    .forEach((img)=>{
+if (modal && modalImage && closeModal) {
 
-        img.addEventListener("click",()=>{
+    document
+        .querySelectorAll(".product-image img, .product-images img")
+        .forEach((img) => {
 
-            modal.classList.add("active");
+            img.addEventListener("click", () => {
 
-            modalImage.src = img.src;
-            modalImage.alt = img.alt;
+                modal.classList.add("active");
+                modalImage.src = img.src;
+                modalImage.alt = img.alt;
+
+            });
 
         });
 
+    const hideModal = () => {
+        modal.classList.remove("active");
+    };
+
+    closeModal.addEventListener("click", hideModal);
+
+    modal.addEventListener("click", (event) => {
+
+        if (event.target === modal) {
+            hideModal();
+        }
+
     });
 
-function hideModal(){
+    document.addEventListener("keydown", (event) => {
 
-    modal.classList.remove("active");
+        if (event.key === "Escape") {
+            hideModal();
+        }
+
+    });
 
 }
-
-closeModal.addEventListener("click",hideModal);
-
-modal.addEventListener("click",(e)=>{
-
-    if(e.target===modal){
-
-        hideModal();
-
-    }
-
-});
-
-document.addEventListener("keydown",(e)=>{
-
-    if(e.key==="Escape"){
-
-        hideModal();
-
-    }
-
-});
-
-
 
