@@ -286,53 +286,117 @@
                 </p>
             </div>
 
-            <div class="decision-flow">
+            <div class="prewash-advice">
+                <div class="prewash-advice-mark">i</div>
+                <div>
+                    <strong>Recomendación general</strong>
+                    <p>
+                        Aunque no haya una mancha visible, la guía recomienda que en cada
+                        lavada siempre vaya HLD y, de preferencia, también OxyMax para
+                        mantener los blancos más blancos por más tiempo.
+                    </p>
+                </div>
+            </div>
 
-                <div class="decision-box decision-box-main">
-                    <span>Mancha identificada</span>
-                    <strong>¿Es grasa, aceite o bloqueador solar?</strong>
+            <div class="prewash-flow" aria-label="Diagrama para elegir el prelavado correcto">
+
+                <div class="flow-stage">
+                    <span class="flow-stage-label">Inicio</span>
+                    <div class="flow-start-card">
+                        <strong>Mancha ya identificada</strong>
+                        <span>Paso 1</span>
+                    </div>
                 </div>
 
-                <div class="decision-columns">
+                <div class="flow-down" aria-hidden="true"><span></span></div>
 
-                    <div class="decision-branch">
-                        <span class="decision-answer">Sí</span>
+                <div class="flow-question-card">
+                    <span class="flow-question-icon">?</span>
+                    <div>
+                        <span class="flow-question-kicker">Primera decisión</span>
+                        <h3>¿Es mancha de grasa, aceite o de bloqueador solar?</h3>
+                    </div>
+                </div>
 
-                        <div class="decision-box">
-                            <strong>Aplica Swipe</strong>
-                            <p>Rocía directamente sobre la mancha.</p>
+                <div class="flow-branch-grid flow-branch-grid-first">
+                    <article class="flow-branch">
+                        <span class="flow-branch-label">Sí</span>
+                        <div class="flow-action-card flow-action-card-highlight">
+                            <span class="flow-card-number">01</span>
+                            <div>
+                                <h4>Rocía Swipe directamente sobre la mancha</h4>
+                                <p>
+                                    Aplica el producto antes de continuar con la evaluación
+                                    del prelavado.
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="decision-branch">
-                        <span class="decision-answer">Después</span>
-
-                        <div class="decision-box">
-                            <strong>Evalúa la mancha</strong>
-                            <p>¿Es normal o está grande / muy pegada?</p>
+                    <article class="flow-branch">
+                        <span class="flow-branch-label">No</span>
+                        <div class="flow-action-card flow-action-card-muted">
+                            <span class="flow-card-number">→</span>
+                            <div>
+                                <h4>Continúa al siguiente criterio</h4>
+                                <p>
+                                    Si no es grasa, aceite o bloqueador, pasa directamente
+                                    a evaluar qué tan marcada está la mancha.
+                                </p>
+                            </div>
                         </div>
-                    </div>
-
+                    </article>
                 </div>
 
-                <div class="decision-columns decision-columns-bottom">
-
-                    <div class="decision-box">
-                        <span class="decision-mini">Normal</span>
-                        <strong>Un solo prelavado</strong>
-                        <p>OxyMax o HLD en remojo, según el tipo de carga.</p>
-                    </div>
-
-                    <div class="decision-box">
-                        <span class="decision-mini">Grande o pegada</span>
-                        <strong>Haz ambos prelavados</strong>
-                        <p>Primero OxyMax y después HLD en remojo.</p>
-                    </div>
-
+                <div class="flow-merge">
+                    <span>Ambas rutas continúan aquí</span>
                 </div>
 
-                <div class="decision-final">
-                    Lava en ciclo normal con HLD
+                <div class="flow-down" aria-hidden="true"><span></span></div>
+
+                <div class="flow-question-card flow-question-card-second">
+                    <span class="flow-question-icon">!</span>
+                    <div>
+                        <span class="flow-question-kicker">Segunda decisión</span>
+                        <h3>¿La mancha es grande o está muy pegada?</h3>
+                    </div>
+                </div>
+
+                <div class="flow-branch-grid">
+                    <article class="flow-branch">
+                        <span class="flow-branch-label">Normal</span>
+                        <div class="flow-result-card">
+                            <span class="flow-card-number">02</span>
+                            <div>
+                                <h4>Un solo prelavado basta</h4>
+                                <p>
+                                    <strong>OxyMax</strong> para sangre, café o tierra,
+                                    o <strong>HLD en remojo</strong> para cargas grandes.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="flow-branch">
+                        <span class="flow-branch-label">Grande o pegada</span>
+                        <div class="flow-result-card">
+                            <span class="flow-card-number">03</span>
+                            <div>
+                                <h4>Haz ambos prelavados</h4>
+                                <p>
+                                    Primero <strong>OxyMax</strong> y después
+                                    <strong>HLD en remojo</strong>.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="flow-down flow-down-final" aria-hidden="true"><span></span></div>
+
+                <div class="flow-final-card">
+                    <span class="flow-final-kicker">Resultado final</span>
+                    <strong>Lava en ciclo normal con HLD</strong>
                 </div>
 
             </div>
@@ -770,3 +834,4 @@
 
 </body>
 </html>
+
