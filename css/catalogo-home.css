@@ -1,0 +1,779 @@
+:root{
+    --green:#1e4a3b;
+    --green-dark:#12281f;
+    --green-soft:#315c4d;
+    --gold:#a9a55c;
+    --cream:#f7f3e9;
+    --cream-light:#fbf9f4;
+    --charcoal:#2b2b26;
+    --muted:#6e706a;
+    --white:#fff;
+    --line:rgba(30,74,59,.14);
+    --line-light:rgba(255,255,255,.13);
+  }
+  
+  *{box-sizing:border-box}
+  
+  html{scroll-behavior:smooth}
+  
+  body{
+    margin:0;
+    font-family:"Inter",sans-serif;
+    color:var(--charcoal);
+    background:var(--cream-light);
+  }
+  
+  a{color:inherit;text-decoration:none}
+  
+  img{display:block;max-width:100%}
+  
+  button,input,textarea,select{font:inherit}
+  
+  .catalog-shell{
+    width:min(1180px,calc(100% - 40px));
+    margin:0 auto;
+  }
+  
+  /* HEADER */
+  
+  .catalog-header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(251,249,244,.94);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--line);
+  }
+  
+  .catalog-header-inner{
+    width:min(1180px,calc(100% - 40px));
+    min-height:82px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:28px;
+  }
+  
+  .catalog-logo{
+    width:235px;
+    height:auto;
+  }
+  
+  .catalog-nav{
+    display:flex;
+    align-items:center;
+    gap:28px;
+  }
+  
+  .catalog-nav a{
+    position:relative;
+    padding:9px 0;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.025em;
+    color:var(--green-dark);
+  }
+  
+  .catalog-nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:100%;
+    bottom:2px;
+    height:1px;
+    background:var(--gold);
+    transition:right .2s ease;
+  }
+  
+  .catalog-nav a:hover::after{
+    right:0;
+  }
+  
+  .catalog-menu-toggle{
+    display:none;
+    width:44px;
+    height:44px;
+    padding:0;
+    border:0;
+    background:transparent;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+  }
+  
+  .catalog-menu-toggle span{
+    width:24px;
+    height:2px;
+    background:var(--green-dark);
+    border-radius:999px;
+    transition:.2s ease;
+  }
+  
+  /* HERO */
+  
+  .catalog-hero{
+    position:relative;
+    overflow:hidden;
+    padding:112px 0 94px;
+    background:
+      radial-gradient(circle at 85% 15%,rgba(169,165,92,.17),transparent 29%),
+      radial-gradient(circle at 8% 82%,rgba(30,74,59,.08),transparent 32%),
+      linear-gradient(135deg,#fbf9f4 0%,#f4f0e3 100%);
+  }
+  
+  .catalog-hero::after{
+    content:"";
+    position:absolute;
+    width:340px;
+    height:340px;
+    border:1px solid rgba(30,74,59,.08);
+    border-radius:50%;
+    right:-120px;
+    top:-140px;
+  }
+  
+  .catalog-hero-inner{
+    position:relative;
+    z-index:2;
+    max-width:920px;
+    text-align:center;
+  }
+  
+  .eyebrow{
+    display:inline-block;
+    margin-bottom:18px;
+    font-family:"Archivo",sans-serif;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  
+  .catalog-hero h1,
+  .section-heading h2,
+  .mega-copy h3,
+  .help-card h2{
+    margin:0;
+    font-family:"Archivo",sans-serif;
+    color:var(--green-dark);
+  }
+  
+  .catalog-hero h1{
+    max-width:880px;
+    margin:0 auto 24px;
+    font-size:clamp(48px,6.5vw,84px);
+    line-height:.96;
+    letter-spacing:-.05em;
+  }
+  
+  .catalog-hero p{
+    max-width:700px;
+    margin:0 auto;
+    font-size:17px;
+    line-height:1.75;
+    color:#60625d;
+  }
+  
+  .hero-arrow{
+    width:max-content;
+    margin:34px auto 0;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--green);
+  }
+  
+  .hero-arrow strong{
+    width:34px;
+    height:34px;
+    display:grid;
+    place-items:center;
+    border:1px solid var(--line);
+    border-radius:50%;
+    font-size:16px;
+  }
+  
+  /* CATEGORIES */
+  
+  .catalog-categories{
+    padding:92px 0 100px;
+  }
+  
+  .section-heading{
+    max-width:680px;
+    margin-bottom:38px;
+  }
+  
+  .section-heading h2{
+    margin-bottom:12px;
+    font-size:clamp(38px,5vw,58px);
+    line-height:1.02;
+    letter-spacing:-.035em;
+  }
+  
+  .section-heading p{
+    margin:0;
+    font-size:15px;
+    color:var(--muted);
+  }
+  
+  /* BIG CARDS */
+  
+  .mega-category{
+    position:relative;
+    overflow:hidden;
+    border-radius:30px;
+    margin-bottom:22px;
+  }
+  
+  .mega-category-top{
+    position:relative;
+    min-height:235px;
+    padding:38px 42px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:end;
+    gap:30px;
+  }
+  
+  .mega-number{
+    position:absolute;
+    right:30px;
+    top:8px;
+    font-family:"Archivo",sans-serif;
+    font-size:130px;
+    font-weight:900;
+    line-height:1;
+    letter-spacing:-.08em;
+    opacity:.055;
+    pointer-events:none;
+  }
+  
+  .category-kicker{
+    display:block;
+    margin-bottom:10px;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.17em;
+    text-transform:uppercase;
+  }
+  
+  .mega-copy{
+    max-width:660px;
+  }
+  
+  .mega-copy h3{
+    margin-bottom:10px;
+    font-size:60px;
+    line-height:.98;
+    letter-spacing:-.045em;
+  }
+  
+  .mega-copy p{
+    max-width:620px;
+    margin:0;
+    font-size:15px;
+    line-height:1.72;
+  }
+  
+  .mega-badge{
+    min-width:112px;
+    padding:16px 18px;
+    border-radius:18px;
+    text-align:center;
+  }
+  
+  .mega-badge span{
+    display:block;
+    font-family:"Archivo",sans-serif;
+    font-size:31px;
+    font-weight:900;
+    line-height:1;
+  }
+  
+  .mega-badge small{
+    display:block;
+    margin-top:5px;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  
+  /* HOTEL */
+  
+  .mega-category-hotel{
+    color:#fff;
+    background:
+      radial-gradient(circle at 92% 10%,rgba(169,165,92,.18),transparent 27%),
+      linear-gradient(135deg,#17392e 0%,#1e4a3b 58%,#285847 100%);
+  }
+  
+  .mega-category-hotel .mega-copy h3{
+    color:#fff;
+  }
+  
+  .mega-category-hotel .category-kicker{
+    color:#c8c587;
+  }
+  
+  .mega-category-hotel .mega-copy p{
+    color:rgba(255,255,255,.72);
+  }
+  
+  .mega-category-hotel .mega-badge{
+    border:1px solid var(--line-light);
+    background:rgba(255,255,255,.07);
+  }
+  
+  .mega-category-hotel .mega-badge small{
+    color:rgba(255,255,255,.56);
+  }
+  
+  .hotel-products{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    border-top:1px solid var(--line-light);
+  }
+  
+  .hotel-item{
+    min-height:86px;
+    padding:18px 26px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    border-right:1px solid var(--line-light);
+    border-bottom:1px solid var(--line-light);
+    transition:background .2s ease;
+  }
+  
+  .hotel-item:nth-child(even){
+    border-right:0;
+  }
+  
+  .hotel-item:nth-last-child(-n+2){
+    border-bottom:0;
+  }
+  
+  .hotel-item:last-child:nth-child(odd){
+    border-right:0;
+  }
+  
+  .hotel-item > div{
+    min-width:0;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  
+  .item-index{
+    flex:0 0 auto;
+    font-family:"Archivo",sans-serif;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.08em;
+    opacity:.48;
+  }
+  
+  .hotel-item strong{
+    font-family:"Archivo",sans-serif;
+    font-size:15px;
+    line-height:1.25;
+  }
+  
+  .hotel-item small{
+    flex:0 0 auto;
+    padding:7px 9px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:999px;
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.53);
+  }
+  
+  .hotel-item:hover{
+    background:rgba(255,255,255,.04);
+  }
+  
+  /* HOME */
+  
+  .mega-category-home{
+    border:1px solid var(--line);
+    background:
+      radial-gradient(circle at 95% 0%,rgba(169,165,92,.16),transparent 25%),
+      #fff;
+  }
+  
+  .mega-category-home .category-kicker{
+    color:var(--gold);
+  }
+  
+  .mega-category-home .mega-copy p{
+    color:var(--muted);
+  }
+  
+  .mega-category-home .mega-badge{
+    color:var(--green);
+    border:1px solid var(--line);
+    background:var(--cream-light);
+  }
+  
+  .mega-category-home .mega-badge small{
+    color:#7d7f79;
+  }
+  
+  .home-product-link{
+    min-height:104px;
+    padding:20px 28px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:22px;
+    color:var(--green-dark);
+    border-top:1px solid var(--line);
+    background:var(--cream-light);
+    transition:background .2s ease,padding .2s ease;
+  }
+  
+  .home-product-link > div{
+    display:flex;
+    align-items:center;
+    gap:18px;
+  }
+  
+  .home-product-link strong{
+    display:block;
+    margin-bottom:4px;
+    font-family:"Archivo",sans-serif;
+    font-size:22px;
+  }
+  
+  .home-product-link small{
+    display:block;
+    font-size:12px;
+    color:#777972;
+  }
+  
+  .home-arrow{
+    flex:0 0 auto;
+    width:48px;
+    height:48px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:var(--green);
+    color:#fff;
+    font-size:22px;
+    transition:transform .2s ease,background .2s ease;
+  }
+  
+  .home-product-link:hover{
+    background:#f4f0e5;
+    padding-left:34px;
+  }
+  
+  .home-product-link:hover .home-arrow{
+    transform:translateX(3px);
+    background:var(--green-dark);
+  }
+  
+  /* HELP */
+  
+  .catalog-help{
+    padding:0 0 96px;
+  }
+  
+  .help-card{
+    padding:48px 52px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:42px;
+    border-radius:28px;
+    background:var(--cream);
+  }
+  
+  .help-card h2{
+    margin-bottom:10px;
+    font-size:38px;
+    letter-spacing:-.035em;
+  }
+  
+  .help-card p{
+    max-width:690px;
+    margin:0;
+    font-size:14px;
+    line-height:1.72;
+    color:var(--muted);
+  }
+  
+  .whatsapp-button{
+    min-height:50px;
+    padding:15px 20px;
+    flex:0 0 auto;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+    border-radius:999px;
+    background:var(--green);
+    color:#fff;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    transition:background .2s ease,transform .2s ease;
+  }
+  
+  .whatsapp-button:hover{
+    background:var(--green-dark);
+    transform:translateY(-1px);
+  }
+  
+  /* FOOTER */
+  
+  .catalog-footer{
+    padding:44px 0;
+    background:var(--green-dark);
+    color:#fff;
+  }
+  
+  .catalog-footer-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:28px;
+  }
+  
+  .catalog-footer-logo{
+    width:220px;
+  }
+  
+  .catalog-footer p{
+    margin:0;
+    font-size:11px;
+    color:rgba(255,255,255,.56);
+  }
+  
+  .catalog-footer a{
+    font-size:11px;
+    font-weight:800;
+  }
+  
+  /* RESPONSIVE */
+  
+  @media(max-width:900px){
+    .catalog-menu-toggle{
+      display:flex;
+    }
+  
+    .catalog-nav{
+      display:none;
+      position:absolute;
+      top:82px;
+      left:0;
+      right:0;
+      padding:16px 20px 22px;
+      flex-direction:column;
+      align-items:stretch;
+      gap:0;
+      background:var(--cream-light);
+      border-bottom:1px solid var(--line);
+    }
+  
+    .catalog-nav.mobile-open{
+      display:flex;
+    }
+  
+    .catalog-nav a{
+      padding:15px 0;
+      border-bottom:1px solid var(--line);
+    }
+  
+    .catalog-nav a:last-child{
+      border-bottom:0;
+    }
+  
+    .mega-category-top{
+      grid-template-columns:1fr;
+      align-items:start;
+    }
+  
+    .mega-badge{
+      width:max-content;
+    }
+  
+    .help-card{
+      align-items:flex-start;
+      flex-direction:column;
+    }
+  
+    .catalog-footer-inner{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+  }
+  
+  @media(max-width:650px){
+    .catalog-shell,
+    .catalog-header-inner{
+      width:min(100% - 32px,1180px);
+    }
+  
+    .catalog-header-inner{
+      min-height:72px;
+    }
+  
+    .catalog-logo{
+      width:175px;
+    }
+  
+    .catalog-nav{
+      top:72px;
+    }
+  
+    .catalog-hero{
+      padding:78px 0 68px;
+    }
+  
+    .catalog-hero h1{
+      font-size:42px;
+      line-height:1;
+    }
+  
+    .catalog-hero p{
+      font-size:15px;
+    }
+  
+    .catalog-categories{
+      padding:72px 0 78px;
+    }
+  
+    .section-heading{
+      margin-bottom:28px;
+    }
+  
+    .mega-category{
+      border-radius:22px;
+    }
+  
+    .mega-category-top{
+      min-height:auto;
+      padding:30px 22px 27px;
+      gap:23px;
+    }
+  
+    .mega-number{
+      right:16px;
+      top:12px;
+      font-size:84px;
+    }
+  
+    .mega-copy h3{
+      font-size:42px;
+    }
+  
+    .mega-copy p{
+      font-size:14px;
+    }
+  
+    .mega-badge{
+      padding:12px 14px;
+      border-radius:14px;
+    }
+  
+    .mega-badge span{
+      font-size:26px;
+    }
+  
+    .hotel-products{
+      grid-template-columns:1fr;
+    }
+  
+    .hotel-item{
+      min-height:76px;
+      padding:16px 18px;
+      border-right:0;
+    }
+  
+    .hotel-item:nth-last-child(-n+2){
+      border-bottom:1px solid var(--line-light);
+    }
+  
+    .hotel-item:last-child{
+      border-bottom:0;
+    }
+  
+    .hotel-item strong{
+      font-size:14px;
+    }
+  
+    .hotel-item small{
+      font-size:7px;
+    }
+  
+    .home-product-link{
+      min-height:96px;
+      padding:18px;
+    }
+  
+    .home-product-link > div{
+      gap:12px;
+    }
+  
+    .home-product-link strong{
+      font-size:19px;
+    }
+  
+    .home-product-link small{
+      font-size:11px;
+    }
+  
+    .home-arrow{
+      width:42px;
+      height:42px;
+    }
+  
+    .catalog-help{
+      padding-bottom:72px;
+    }
+  
+    .help-card{
+      padding:34px 24px;
+      border-radius:22px;
+    }
+  
+    .help-card h2{
+      font-size:30px;
+    }
+  
+    .whatsapp-button{
+      width:100%;
+    }
+  }
+  
+  @media(max-width:390px){
+    .catalog-hero h1{
+      font-size:37px;
+    }
+  
+    .hotel-item{
+      align-items:flex-start;
+      flex-direction:column;
+      gap:10px;
+    }
+  
+    .hotel-item small{
+      margin-left:24px;
+    }
+  }
