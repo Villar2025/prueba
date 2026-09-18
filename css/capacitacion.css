@@ -234,7 +234,7 @@ button {
     z-index: 1;
 
     display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+    grid-template-columns: 1fr;
     gap: 85px;
     align-items: center;
 }
@@ -287,6 +287,7 @@ button {
 }
 
 .training-hero-panel {
+    display: none;
     padding: 38px;
     color: var(--white);
     background: var(--green);
@@ -1739,4 +1740,51 @@ button {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
     }
+}
+
+/* Hero sin recuadro de ruta de aprendizaje */
+.training-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+}
+
+.training-hero-panel {
+    display: none !important;
+}
+
+.training-hero-copy {
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Nuevo acomodo del inicio de Capacitación */
+.training-hero-copy {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.training-hero-copy h1 {
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.training-hero-lead {
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.training-hero-actions {
+    justify-content: center;
+}
+
+.training-hero-meta {
+    justify-content: center;
+}
+
+.training-hero-meta {
+    display: none !important;
 }
