@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Calculadora MALAK para estimar el costo por habitación vendida en un hotel.">
+  <title>Costo por habitación | MALAK</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/costo-habitacion.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="./index.html" class="brand" aria-label="Ir al inicio">
+      <img src="./img/logo.png" alt="MALAK Distribuidora de Blancos">
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="./index.html">Inicio</a>
+      <a href="./catalogo.html">Catálogo</a>
+      <a href="./capacitacion.html">Capacitación</a>
+      <a href="./calculadora-costos-malak_1.html">Calculadora de productos</a>
+    </nav>
+
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Recurso para hotelería</span>
+        <h1>Conoce el costo de cada habitación que vendes.</h1>
+        <p>
+          Captura los gastos principales de tu hotel y obtén una estimación del costo
+          por noche vendida. La herramienta separa costos fijos y variables para que
+          el resultado sea fácil de entender.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#calculadora" class="btn btn-primary">Comenzar cálculo</a>
+          <a href="#resultado" class="btn btn-secondary">Ver resultado</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <span class="hero-card-label">La idea es simple</span>
+        <strong>¿Cuánto cuesta operar una habitación ocupada?</strong>
+        <div class="hero-card-flow">
+          <span>Hotel</span><b>+</b><span>Operación</span><b>+</b><span>Blancos</span>
+        </div>
+        <p>Los datos se actualizan automáticamente conforme llenas la calculadora.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="calculator-area" id="calculadora">
+    <div class="shell calc-layout">
+
+      <div class="calc-main">
+
+        <div class="calc-tools">
+          <button type="button" id="btnDemo">Cargar ejemplo</button>
+          <button type="button" id="btnReset">Borrar datos</button>
+        </div>
+
+        <!-- 1 -->
+        <section class="step-card">
+          <div class="step-head">
+            <span class="step-num">01</span>
+            <div>
+              <h2>Tu hotel</h2>
+              <p>Estos datos determinan cuántas noches vendidas absorben tus costos mensuales.</p>
+            </div>
+          </div>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Habitaciones totales</span>
+              <input type="number" id="rooms" value="20" min="1" inputmode="numeric">
+            </label>
+
+            <label class="field">
+              <span>Ocupación promedio</span>
+              <div class="suffix-input">
+                <input type="number" id="occ" value="55" min="1" max="100" inputmode="decimal">
+                <b>%</b>
+              </div>
+            </label>
+
+            <label class="field">
+              <span>Estancia promedio</span>
+              <div class="suffix-input">
+                <input type="number" id="los" value="1.8" min="1" step="0.1" inputmode="decimal">
+                <b>noches</b>
+              </div>
+            </label>
+
+            <label class="field">
+              <span>Días del mes</span>
+              <input type="number" id="dias" value="30" min="28" max="31" inputmode="numeric">
+            </label>
+          </div>
+
+          <div class="info-box" id="boxNoches">—</div>
+        </section>
+
+        <!-- 2 -->
+        <section class="step-card">
+          <div class="step-head">
+            <span class="step-num">02</span>
+            <div>
+              <h2>Servicios</h2>
+              <p>Captura tus recibos y la parte que realmente corresponde a las habitaciones.</p>
+            </div>
+          </div>
+
+          <div class="group-title">Electricidad</div>
+          <div class="field-grid three">
+            <label class="field">
+              <span>Monto del recibo</span>
+              <div class="money-input"><input type="number" id="luzMonto" value="18000" min="0"></div>
+            </label>
+            <label class="field">
+              <span>Periodo</span>
+              <select id="luzPer">
+                <option value="1">Mensual</option>
+                <option value="2" selected>Bimestral</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Uso de habitaciones</span>
+              <div class="suffix-input"><input type="number" id="luzPct" value="65" min="0" max="100"><b>%</b></div>
+            </label>
+          </div>
+
+          <div class="group-title">Agua</div>
+          <div class="field-grid three">
+            <label class="field">
+              <span>Monto del recibo</span>
+              <div class="money-input"><input type="number" id="aguaMonto" value="3200" min="0"></div>
+            </label>
+            <label class="field">
+              <span>Periodo</span>
+              <select id="aguaPer">
+                <option value="1">Mensual</option>
+                <option value="2" selected>Bimestral</option>
+                <option value="3">Trimestral</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Uso de habitaciones</span>
+              <div class="suffix-input"><input type="number" id="aguaPct" value="70" min="0" max="100"><b>%</b></div>
+            </label>
+          </div>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Pipas de agua al mes</span>
+              <div class="money-input"><input type="number" id="pipas" value="0" min="0"></div>
+            </label>
+            <label class="field">
+              <span>Gas al mes</span>
+              <div class="money-input"><input type="number" id="gasMonto" value="4500" min="0"></div>
+            </label>
+            <label class="field">
+              <span>Gas para habitaciones</span>
+              <div class="suffix-input"><input type="number" id="gasPct" value="85" min="0" max="100"><b>%</b></div>
+            </label>
+            <label class="field">
+              <span>Internet, TV y teléfono</span>
+              <div class="money-input"><input type="number" id="netMonto" value="1800" min="0"></div>
+            </label>
+          </div>
+        </section>
+
+        <!-- 3 -->
+        <section class="step-card">
+          <div class="step-head">
+            <span class="step-num">03</span>
+            <div>
+              <h2>Estructura</h2>
+              <p>Gastos que existen aunque una habitación no se venda.</p>
+            </div>
+          </div>
+
+          <div class="field-grid">
+            <label class="field"><span>Renta o crédito mensual</span><div class="money-input"><input type="number" id="renta" value="0" min="0"></div></label>
+            <label class="field"><span>Predial anual</span><div class="money-input"><input type="number" id="predial" value="9000" min="0"></div></label>
+            <label class="field"><span>Seguro anual</span><div class="money-input"><input type="number" id="seguro" value="14000" min="0"></div></label>
+            <label class="field"><span>Mantenimiento mensual</span><div class="money-input"><input type="number" id="manten" value="6000" min="0"></div></label>
+            <label class="field"><span>Administración mensual</span><div class="money-input"><input type="number" id="admin" value="3500" min="0"></div></label>
+            <label class="field"><span>Parte asignada a habitaciones</span><div class="suffix-input"><input type="number" id="estrPct" value="100" min="0" max="100"><b>%</b></div></label>
+          </div>
+        </section>
+
+        <!-- 4 -->
+        <section class="step-card">
+          <div class="step-head">
+            <span class="step-num">04</span>
+            <div>
+              <h2>Personal</h2>
+              <p>Incluye la nómina necesaria para operar las habitaciones.</p>
+            </div>
+          </div>
+
+          <div class="field-grid">
+            <label class="field"><span>Camaristas</span><input type="number" id="camNum" value="3" min="0"></label>
+            <label class="field"><span>Sueldo por camarista</span><div class="money-input"><input type="number" id="camSueldo" value="7500" min="0"></div></label>
+            <label class="field"><span>Recepcionistas</span><input type="number" id="recNum" value="2" min="0"></label>
+            <label class="field"><span>Sueldo por recepcionista</span><div class="money-input"><input type="number" id="recSueldo" value="8500" min="0"></div></label>
+            <label class="field"><span>Otra nómina mensual</span><div class="money-input"><input type="number" id="otrosN" value="9000" min="0"></div></label>
+            <label class="field"><span>Factor de carga social</span><input type="number" id="factor" value="1.35" min="1" step="0.01"></label>
+          </div>
+        </section>
+
+        <!-- 5 -->
+        <section class="step-card">
+          <div class="step-head">
+            <span class="step-num">05</span>
+            <div>
+              <h2>Lavandería</h2>
+              <p>Calcula lo que cuesta lavar la ropa que genera una habitación.</p>
+            </div>
+          </div>
+
+          <div class="segmented" id="segLav">
+            <button type="button" data-mode="propia" class="active">Propia</button>
+            <button type="button" data-mode="externa">Externa</button>
+            <button type="button" data-mode="mixta">Mixta</button>
+          </div>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Costo por kilo</span>
+              <div class="money-input"><input type="number" id="precioKg" value="12" min="0" step="0.5"></div>
+            </label>
+
+            <label class="field conditional" id="fieldPctExterna" hidden>
+              <span>Porcentaje enviado fuera</span>
+              <div class="suffix-input"><input type="number" id="pctExterna" value="30" min="0" max="100"><b>%</b></div>
+            </label>
+
+            <label class="field conditional" id="fieldKgExterno" hidden>
+              <span>Costo externo por kilo</span>
+              <div class="money-input"><input type="number" id="precioKgExt" value="27" min="0" step="0.5"></div>
+            </label>
+
+            <label class="field">
+              <span>Ropa por servicio</span>
+              <select id="tipoCama">
+                <option value="3.4">Individual · 3.4 kg</option>
+                <option value="4.5" selected>Matrimonial · 4.5 kg</option>
+                <option value="5.0">Queen · 5.0 kg</option>
+                <option value="5.5">King · 5.5 kg</option>
+                <option value="5.3">Dos individuales · 5.3 kg</option>
+                <option value="custom">Capturar peso</option>
+              </select>
+            </label>
+
+            <label class="field" id="fieldKgCustom" hidden>
+              <span>Kilos por servicio</span>
+              <div class="suffix-input"><input type="number" id="kgCustom" value="4.5" min="0" step="0.1"><b>kg</b></div>
+            </label>
+
+            <label class="field">
+              <span>Cambio de blancos</span>
+              <select id="frec">
+                <option value="1">Diario</option>
+                <option value="0.6" selected>Cada 2 noches</option>
+                <option value="0.45">Cada 3 noches</option>
+                <option value="salida">Solo en salida</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Limpieza por habitación</span>
+              <div class="money-input"><input type="number" id="quimicos" value="11" min="0" step="0.5"></div>
+            </label>
+          </div>
+
+          <label class="switch-row">
+            <input type="checkbox" id="colchaOn" checked>
+            <span>
+              <strong>Incluir lavado de colcha o cobertor</strong>
+              <small>Se prorratea según la frecuencia que indiques.</small>
+            </span>
+          </label>
+
+          <div class="field-grid compact" id="colchaFields">
+            <label class="field"><span>Peso</span><div class="suffix-input"><input type="number" id="colchaKg" value="1.5" min="0" step="0.1"><b>kg</b></div></label>
+            <label class="field"><span>Frecuencia</span>
+              <select id="colchaFrec">
+                <option value="1">Cada servicio</option>
+                <option value="4" selected>Cada 4 servicios</option>
+                <option value="8">Cada 8 servicios</option>
+                <option value="15">Una vez al mes</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="info-box" id="boxLav">—</div>
+        </section>
+
+        <!-- 6 -->
+        <section class="step-card">
+          <div class="step-head">
+            <span class="step-num">06</span>
+            <div>
+              <h2>Reposición de blancos</h2>
+              <p>Convierte el desgaste de cada pieza en un costo por noche vendida.</p>
+            </div>
+          </div>
+
+          <div class="life-presets">
+            <span>Vida útil sugerida para piezas que se lavan:</span>
+            <div class="segmented" id="segVida">
+              <button type="button" data-life="120">120 lavadas</button>
+              <button type="button" data-life="250">250 lavadas</button>
+              <button type="button" data-life="300" class="active">300 lavadas</button>
+            </div>
+          </div>
+
+          <div class="linen-table">
+            <div class="linen-head">
+              <span>Pieza</span><span>Precio</span><span>Pzas.</span><span>Vida</span>
+            </div>
+            <div id="linenRows"></div>
+          </div>
+
+          <div class="group-title">Piezas que se reponen por tiempo</div>
+          <div class="linen-table">
+            <div class="linen-head">
+              <span>Pieza</span><span>Precio</span><span>Pzas.</span><span>Meses</span>
+            </div>
+            <div id="durableRows"></div>
+          </div>
+
+          <div class="field-grid compact merma-row">
+            <label class="field">
+              <span>Merma por daño o extravío</span>
+              <div class="suffix-input"><input type="number" id="merma" value="8" min="0" max="60"><b>%</b></div>
+            </label>
+          </div>
+
+          <div class="info-box" id="boxBlancos">—</div>
+        </section>
+
+        <!-- 7 -->
+        <section class="step-card">
+          <div class="step-head">
+            <span class="step-num">07</span>
+            <div>
+              <h2>Amenidades</h2>
+              <p>Activa solo lo que realmente entregas y ajusta el costo unitario.</p>
+            </div>
+          </div>
+
+          <div class="amenities-grid" id="amenitiesGrid"></div>
+        </section>
+
+      </div>
+
+      <aside class="result-column" id="resultado">
+        <section class="result-card">
+          <span class="result-eyebrow">Resultado estimado</span>
+          <p class="result-label">Costo por noche vendida</p>
+          <div class="result-big" id="resultTotal">$0</div>
+
+          <div class="result-split">
+            <div>
+              <span>Costos fijos</span>
+              <strong id="resultFixed">$0</strong>
+            </div>
+            <div>
+              <span>Costos variables</span>
+              <strong id="resultVariable">$0</strong>
+            </div>
+          </div>
+
+          <div class="result-meta">
+            <div><span>Noches vendidas/mes</span><strong id="resultNights">0</strong></div>
+            <div><span>Costo mensual habitaciones</span><strong id="resultMonth">$0</strong></div>
+          </div>
+        </section>
+
+        <section class="breakdown-card">
+          <div class="breakdown-head">
+            <span>Desglose por habitación</span>
+            <small>por noche vendida</small>
+          </div>
+          <div id="breakdown"></div>
+        </section>
+
+        <div class="result-note">
+          Esta herramienta es una estimación operativa. Sustituye los valores de ejemplo
+          por los datos reales de tu hotel para obtener un resultado útil.
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="calculator-footer">
+    <div class="shell calculator-footer-inner">
+
+        <img
+            src="./img/MALAK3.png"
+            alt="MALAK Distribuidora de Blancos"
+            class="calculator-footer-logo"
+        >
+
+        <p>
+            Herramientas de apoyo para clientes hoteleros · Oaxaca
+        </p>
+
+        <a href="./index.html">
+            Volver al sitio principal →
+        </a>
+
+    </div>
+</footer>
+
+<script src="./js/costo-habitacion.js"></script>
+</body>
+</html>
