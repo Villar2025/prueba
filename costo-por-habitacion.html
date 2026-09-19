@@ -1,436 +1,664 @@
 <!DOCTYPE html>
+
 <html lang="es-MX">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Calculadora MALAK para estimar el costo por habitación vendida en un hotel.">
-  <title>Costo por habitación | MALAK</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/costo-habitacion.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="Calculadora MALAK para conocer el costo real por habitación vendida, la tarifa mínima y el impacto de los blancos en la operación hotelera." name="description"/>
+<title>Costo por habitación | MALAK</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="./css/costo-habitacion.css" rel="stylesheet"/>
 </head>
-
 <body>
-
 <header class="site-header">
-  <div class="header-inner">
-    <a href="./index.html" class="brand" aria-label="Ir al inicio">
-      <img src="./img/logo.png" alt="MALAK Distribuidora de Blancos">
-    </a>
-
-    <nav class="main-nav" id="mainNav">
-      <a href="./index.html">Inicio</a>
-      <a href="./catalogo.html">Catálogo</a>
-      <a href="./capacitacion.html">Capacitación</a>
-      <a href="./calculadora-costos-malak_1.html">Calculadora de productos</a>
-    </nav>
-
-    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+<div class="header-inner">
+<a aria-label="Ir al inicio" class="brand" href="./index.html">
+<img alt="MALAK Distribuidora de Blancos" src="./img/logo.png"/>
+</a>
+<nav class="main-nav" id="mainNav">
+<a href="./index.html">Inicio</a>
+<a href="./catalogo.html">Catálogo</a>
+<a href="./capacitacion.html">Capacitación</a>
+<a href="./calculadora-costos-malak_1.html">Calculadora de productos</a>
+</nav>
+<button aria-expanded="false" aria-label="Abrir menú" class="menu-toggle" type="button">
+<span></span><span></span><span></span>
+</button>
+</div>
 </header>
-
 <main>
+<section class="hero">
+<div class="shell hero-grid">
+<div class="hero-copy">
+<span class="eyebrow">Calcuarto · Recurso para hotelería</span>
+<h1>Conoce cuánto cuesta realmente vender cada habitación.</h1>
+<p>
+        Captura los datos de tu hotel y calcula el costo por noche vendida considerando
+        servicios, estructura, personal, lavandería, reposición de blancos, amenidades,
+        comisiones y margen. Después compáralo con tu tarifa y con lo que cobra tu zona.
+      </p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#calculadora">Comenzar cálculo</a>
+<a class="btn btn-secondary" href="#result">Ver mi número</a>
+</div>
+</div>
+<aside aria-label="Resumen de la herramienta" class="hero-card">
+<span class="hero-card-label">De costo a decisión</span>
+<strong>Un solo cálculo para entender tu habitación.</strong>
+<div class="hero-card-flow">
+<span>Costo real</span><b>→</b><span>Tarifa mínima</span><b>→</b><span>Margen</span>
+</div>
+<p>Los resultados se actualizan automáticamente y tus datos se guardan únicamente en este dispositivo.</p>
+</aside>
+</div>
+</section>
+<section class="calculator-area" id="calculadora">
+<div class="calculator-wrap">
+<div class="resource-intro">
+<div>
+<span class="eyebrow">Calculadora completa</span>
+<h2>Captura tus números reales.</h2>
+</div>
+<p>Los valores precargados son una referencia inicial. Sustitúyelos por los datos de tu hotel para que el resultado represente tu operación.</p>
+</div>
+<div class="tools">
+<button id="btnDemo" type="button">Cargar ejemplo</button>
+<button id="btnReset" type="button">Borrar todo</button>
+<button id="btnCopy" type="button">Copiar resumen</button>
+</div><div class="calculator-layout"><div class="calculator-form"><section class="tool-card">
+<h2>
+<span class="num">1</span>
+                 Tu hotel
+            </h2>
+<p class="hint">La ocupación es la variable que más mueve el resultado: los costos fijos se reparten entre menos noches cuando bajas de temporada.</p>
+<div class="row">
+<label for="rooms">Habitaciones totales</label>
+<div class="w-sm">
+<input id="rooms" inputmode="numeric" min="1" type="number" value="20"/>
+</div>
+</div>
+<div class="row">
+<label for="occ">
+                    Ocupación promedio anual
+                    <span class="note">Noches vendidas ÷ noches disponibles</span>
+</label>
+<div class="w-sm pct">
+<input id="occ" inputmode="decimal" max="100" min="1" type="number" value="55"/>
+</div>
+</div>
+<div class="row">
+<label for="los">
+                    Estancia promedio
+                    <span class="note">Noches por reserva</span>
+</label>
+<div class="w-sm">
+<input id="los" inputmode="decimal" min="1" step="0.1" type="number" value="1.8"/>
+</div>
+</div>
+<div class="row">
+<label for="dias">Días del mes para el cálculo</label>
+<div class="w-sm">
+<input id="dias" inputmode="numeric" max="31" min="28" type="number" value="30"/>
+</div>
+</div>
+<div class="note-box" id="boxNoches">—</div>
+</section><section class="tool-card">
+<h2>
+<span class="num">2</span>
+                 Recibos de servicios
+            </h2>
+<p class="hint">Pon el monto tal como viene en tu último recibo y marca el periodo. El porcentaje es la parte que corresponde a habitaciones, no a lobby, restaurante, alberca u oficinas.</p>
+<div class="row">
+<label for="luzMonto">Recibo de luz (CFE)</label>
+<div class="w-money money">
+<input id="luzMonto" inputmode="decimal" min="0" type="number" value="18000"/>
+</div>
+</div>
+<div class="row">
+<label for="luzPer">Periodo del recibo</label>
+<div class="w-md">
+<select id="luzPer">
+<option value="1">Mensual</option>
+<option selected="" value="2">Bimestral</option>
+</select>
+</div>
+</div>
+<div class="row">
+<label for="luzPct">Parte que toca a habitaciones</label>
+<div class="w-sm pct">
+<input id="luzPct" inputmode="decimal" max="100" min="0" type="number" value="65"/>
+</div>
+</div>
+<p class="sub">Agua</p>
+<div class="row">
+<label for="aguaMonto">Recibo de agua</label>
+<div class="w-money money">
+<input id="aguaMonto" inputmode="decimal" min="0" type="number" value="3200"/>
+</div>
+</div>
+<div class="row">
+<label for="aguaPer">Periodo del recibo</label>
+<div class="w-md">
+<select id="aguaPer">
+<option value="1">Mensual</option>
+<option selected="" value="2">Bimestral</option>
+<option value="3">Trimestral</option>
+</select>
+</div>
+</div>
+<div class="row">
+<label for="aguaPct">Parte que toca a habitaciones</label>
+<div class="w-sm pct">
+<input id="aguaPct" inputmode="decimal" max="100" min="0" type="number" value="70"/>
+</div>
+</div>
+<div class="row">
+<label for="pipas">Pipas de agua al mes (si compras)</label>
+<div class="w-money money">
+<input id="pipas" inputmode="decimal" min="0" type="number" value="0"/>
+</div>
+</div>
+<p class="sub">Gas e internet</p>
+<div class="row">
+<label for="gasMonto">
+                    Gas del mes
+                    <span class="note">Boiler y agua caliente</span>
+</label>
+<div class="w-money money">
+<input id="gasMonto" inputmode="decimal" min="0" type="number" value="4500"/>
+</div>
+</div>
+<div class="row">
+<label for="gasPct">Parte que toca a habitaciones</label>
+<div class="w-sm pct">
+<input id="gasPct" inputmode="decimal" max="100" min="0" type="number" value="85"/>
+</div>
+</div>
+<div class="row">
+<label for="netMonto">Internet, TV y teléfono al mes</label>
+<div class="w-money money">
+<input id="netMonto" inputmode="decimal" min="0" type="number" value="1800"/>
+</div>
+</div>
+</section><section class="tool-card">
+<h2>
+<span class="num">3</span>
+                 Estructura y espacio
+            </h2>
+<p class="hint">Renta o crédito, impuestos y todo lo que pagas aunque el hotel esté vacío. Si el inmueble es propio y no hay crédito, deja la renta en cero.</p>
+<div class="row">
+<label for="renta">Renta o pago de crédito al mes</label>
+<div class="w-money money">
+<input id="renta" inputmode="decimal" min="0" type="number" value="0"/>
+</div>
+</div>
+<div class="row">
+<label for="predial">Predial al año</label>
+<div class="w-money money">
+<input id="predial" inputmode="decimal" min="0" type="number" value="9000"/>
+</div>
+</div>
+<div class="row">
+<label for="seguro">Seguro al año</label>
+<div class="w-money money">
+<input id="seguro" inputmode="decimal" min="0" type="number" value="14000"/>
+</div>
+</div>
+<div class="row">
+<label for="manten">Mantenimiento y reparaciones al mes</label>
+<div class="w-money money">
+<input id="manten" inputmode="decimal" min="0" type="number" value="6000"/>
+</div>
+</div>
+<div class="row">
+<label for="admin">
+                    Administración al mes
+                    <span class="note">Contador, PMS, motor de reservas, licencias</span>
+</label>
+<div class="w-money money">
+<input id="admin" inputmode="decimal" min="0" type="number" value="3500"/>
+</div>
+</div>
+<div class="row">
+<label for="estrPct">Parte que toca a habitaciones</label>
+<div class="w-sm pct">
+<input id="estrPct" inputmode="decimal" max="100" min="0" type="number" value="100"/>
+</div>
+</div>
+</section><section class="tool-card">
+<h2>
+<span class="num">4</span>
+                 Personal
+            </h2>
+<p class="hint">Aunque las camaristas trabajen por turno, se pagan cada quincena, así que entran como costo fijo mensual. El factor de carga cubre IMSS, vacaciones, aguinaldo y prima.</p>
+<div class="row">
+<label for="camNum">Camaristas</label>
+<div class="w-sm">
+<input id="camNum" inputmode="numeric" min="0" type="number" value="3"/>
+</div>
+</div>
+<div class="row">
+<label for="camSueldo">Sueldo mensual por camarista</label>
+<div class="w-money money">
+<input id="camSueldo" inputmode="decimal" min="0" type="number" value="7500"/>
+</div>
+</div>
+<div class="row">
+<label for="recNum">Recepcionistas</label>
+<div class="w-sm">
+<input id="recNum" inputmode="numeric" min="0" type="number" value="2"/>
+</div>
+</div>
+<div class="row">
+<label for="recSueldo">Sueldo mensual por recepcionista</label>
+<div class="w-money money">
+<input id="recSueldo" inputmode="decimal" min="0" type="number" value="8500"/>
+</div>
+</div>
+<div class="row">
+<label for="otrosN">
+                    Otra nómina al mes
+                    <span class="note">Mantenimiento, gerencia, vigilancia</span>
+</label>
+<div class="w-money money">
+<input id="otrosN" inputmode="decimal" min="0" type="number" value="9000"/>
+</div>
+</div>
+<div class="row">
+<label for="factor">
+                    Factor de carga social
+                    <span class="note">1.35 es el promedio en México</span>
+</label>
+<div class="w-sm">
+<input id="factor" inputmode="decimal" min="1" step="0.01" type="number" value="1.35"/>
+</div>
+</div>
+<div class="row">
+<label for="nomPct">Parte que toca a habitaciones</label>
+<div class="w-sm pct">
+<input id="nomPct" inputmode="decimal" max="100" min="0" type="number" value="100"/>
+</div>
+</div>
+</section><section class="tool-card">
+<h2>
+<span class="num">5</span>
+                 Lavado de blancos
+            </h2>
+<p class="hint tight">Este es el costo de lavar, no de comprar. Se calcula por kilo de ropa que sale de la habitación.</p>
+<div class="seg" id="segLav">
+<button aria-pressed="true" data-v="propia" type="button">Lavandería propia</button>
+<button aria-pressed="false" data-v="externa" type="button">Lavandería externa</button>
+<button aria-pressed="false" data-v="mixta" type="button">Mixta</button>
+</div>
+<div class="row">
+<label for="precioKg">
+                    Costo por kilo
+                    <span class="note" id="noteKg">Con lavandería propia siguiendo los protocolos recomendados por MALAK y productos Swipe, el costo promedio ronda los $12 por kilo, ya con agua, luz, químicos y mano de obra.</span>
+</label>
+<div class="w-money money">
+<input id="precioKg" inputmode="decimal" min="0" step="0.5" type="number" value="12"/>
+</div>
+</div>
+<div class="row" id="rowMix" style="display:none">
+<label for="pctExterna">Porcentaje que mandas fuera</label>
+<div class="w-sm pct">
+<input id="pctExterna" inputmode="decimal" max="100" min="0" type="number" value="30"/>
+</div>
+</div>
+<div class="row" id="rowKgExt" style="display:none">
+<label for="precioKgExt">Costo por kilo en lavandería externa</label>
+<div class="w-money money">
+<input id="precioKgExt" inputmode="decimal" min="0" step="0.5" type="number" value="27"/>
+</div>
+</div>
+<p class="sub">Cuánta ropa genera cada habitación</p>
+<div class="row" id="rowTipo">
+<label for="tipoCama">
+                    Tipo de habitación
+                    <span class="note">Sábanas, fundas, toallas y tapete</span>
+</label>
+<div class="w-md">
+<select id="tipoCama">
+<option value="3.4">Individual — 3.4 kg</option>
+<option selected="" value="4.5">Matrimonial — 4.5 kg</option>
+<option value="5.0">Queen — 5.0 kg</option>
+<option value="5.5">King — 5.5 kg</option>
+<option value="5.3">Dos individuales — 5.3 kg</option>
+<option value="custom">Yo lo peso</option>
+</select>
+</div>
+</div>
+<div class="row" id="rowKgMix" style="display:none">
+<label>
+                    Peso promedio por habitación
+                    <span class="note">Calculado con la mezcla de camas que capturaste en el paso 6</span>
+</label>
+<div class="w-sm" id="kgMixVal" style="text-align:right;font-weight:600">—</div>
+</div>
+<div class="row" id="rowKg" style="display:none">
+<label for="kgCustom">Kilos por servicio completo</label>
+<div class="w-sm">
+<input id="kgCustom" inputmode="decimal" min="0" step="0.1" type="number" value="4.5"/>
+</div>
+</div>
+<div class="row">
+<label class="chk" for="colchaOn">
+<input checked="" id="colchaOn" type="checkbox"/>
+<span>
+                        Lavas también colcha o cobertor
+                        <span class="note">Pesan aparte y no se lavan cada servicio</span>
+</span>
+</label>
+</div>
+<div class="row" id="rowColcha">
+<label for="colchaKg">Peso de la colcha o cobertor</label>
+<div class="w-sm">
+<input id="colchaKg" inputmode="decimal" min="0" step="0.1" type="number" value="1.5"/>
+</div>
+</div>
+<div class="row" id="rowColchaF">
+<label for="colchaFrec">Cada cuándo la lavas</label>
+<div class="w-md">
+<select id="colchaFrec">
+<option value="1">En cada servicio</option>
+<option selected="" value="4">Cada 4 servicios</option>
+<option value="8">Cada 8 servicios</option>
+<option value="15">Una vez al mes</option>
+</select>
+</div>
+</div>
+<div class="row">
+<label for="frec">Cada cuándo cambias los blancos</label>
+<div class="w-md">
+<select id="frec">
+<option value="1">Diario</option>
+<option selected="" value="0.6">Cada 2 noches</option>
+<option value="0.45">Cada 3 noches</option>
+<option value="los">Solo en salida</option>
+</select>
+</div>
+</div>
+<div class="row">
+<label for="quimicos">
+                    Productos de limpieza por habitación
+                    <span class="note">Desinfectante, aromatizante, fibras, franelas</span>
+</label>
+<div class="w-money money">
+<input id="quimicos" inputmode="decimal" min="0" step="0.5" type="number" value="11"/>
+</div>
+</div>
+<div class="note-box" id="boxLav">—</div>
+</section><section class="tool-card">
+<h2>
+<span class="num">6</span>
+                 Reposición de blancos
+            </h2>
+<p class="hint tight">Cada noche que vendes le quitas vida a tus sábanas y toallas. Aquí lo conviertes en pesos: precio de la pieza entre las lavadas que aguanta.</p>
+<div class="seg" id="segVida">
+<button aria-pressed="false" data-v="120" type="button">Cuidado básico · 120 lavadas</button>
+<button aria-pressed="false" data-v="250" type="button">Estándar · 250</button>
+<button aria-pressed="true" data-v="300" type="button">Protocolo MALAK · 300</button>
+</div>
+<div class="note-box" id="boxCuidado">—</div>
+<div class="row" style="margin-top:6px">
+<label class="chk" for="mixOn">
+<input id="mixOn" type="checkbox"/>
+<span>
+                        Mis habitaciones no son todas iguales
+                        <span class="note">Para armar combinaciones: una matrimonial más una individual, dos individuales, king, etcétera</span>
+</span>
+</label>
+</div>
+<div id="mixBox" style="display:none">
+<p class="sub" style="border-top:0;padding-top:4px">Tipos de habitación</p>
+<p class="hint tight">Arma cada combinación con las camas que lleva y cuántas habitaciones tienes así.</p>
+<div id="rtList"></div>
+<button class="addBtn" id="btnAddRT" type="button">Agregar tipo de habitación</button>
+<p class="hint tight" id="mixWarn">—</p>
+</div>
+<p class="sub">Ropa de cama: precio y piezas por cama</p>
+<p class="hint tight" id="hintSize">Los precios cambian según el tamaño. Captura cada uno por separado.</p>
+<p class="hint tight">Los precios precargados corresponden a producto de línea hotelera de gramaje alto, del que aguanta los ciclos de lavado que estás viendo arriba. Sustitúyelos por los de tus facturas para que el cálculo sea tuyo.</p>
+<div class="seg" id="segSize">
+<button aria-pressed="false" data-v="ind" type="button">Individual</button>
+<button aria-pressed="true" data-v="mat" type="button">Matrimonial</button>
+<button aria-pressed="false" data-v="qn" type="button">Queen</button>
+<button aria-pressed="false" data-v="kng" type="button">King</button>
+</div>
+<div class="tbl" id="tblRot">
+<div class="thead">
+<span class="t1">Se lava en cada servicio</span>
+<span class="t2">Precio</span>
+<span class="t3">Pzas</span>
+<span class="t4">Lavadas</span>
+</div>
+</div>
+<p class="sub">De la misma cama, pero se reponen por tiempo</p>
+<p class="hint tight">Cada pieza trae la señal concreta para saber cuándo cambiarla. Ajusta los meses a lo que veas en tu hotel, no al calendario.</p>
+<div class="tbl" id="tblDur">
+<div class="thead">
+<span class="t1">Pieza</span>
+<span class="t2">Precio</span>
+<span class="t3">Pzas</span>
+<span class="t4">Meses</span>
+</div>
+</div>
+<p class="sub">Ropa de baño: igual en toda la habitación, sin importar la cama</p>
+<div class="tbl" id="tblBano">
+<div class="thead">
+<span class="t1">Pieza</span>
+<span class="t2">Precio</span>
+<span class="t3">Pzas</span>
+<span class="t4">Lavadas</span>
+</div>
+</div>
+<div class="note-box" id="boxBlancos">—</div>
+<div class="row" style="margin-top:10px">
+<label for="merma">
+                    Mermas por daño y extravío
+                    <span class="note">Piezas dadas de baja antes de tiempo por quemaduras, desgarres o robo</span>
+</label>
+<div class="w-sm pct">
+<input id="merma" inputmode="decimal" max="60" min="0" type="number" value="8"/>
+</div>
+</div>
+<div class="note-box" style="background:var(--acento-tint)">
+<img alt="" aria-hidden="true" class="markSmall" src="./img/logo.png">
+                Cómo llevar la cuenta sin adivinar: marca con plumón indeleble el mes y año de compra en la etiqueta de cada pieza y guarda una pieza nueva sin usar como referencia. Cada seis meses saca una al azar del clóset, compárala contra la nueva y decide. Esa comparación vale más que cualquier promedio.
+            </img></div>
+<p class="hint" style="margin-top:12px">Los ciclos de lavado indicados son promedios de desempeño textil en condiciones normales de uso y de proceso. No contemplan piezas retiradas anticipadamente por daños atribuibles al huésped —quemaduras, desgarres o extravío— ni por desviaciones operativas como sobredosificación de químicos, uso de cloro fuera de protocolo, sobrecarga de lavadora, secado excesivo o almacenamiento con humedad residual. Esas bajas se capturan aparte, en el campo de mermas.</p>
+<details class="ref">
+<summary>¿De dónde sale el porcentaje?</summary>
+<ul>
+<li>La referencia del sector es que un blanco de gramaje hotelero aguanta entre 200 y 300 ciclos de lavado industrial, con reposición cada 12 a 24 meses según la rotación. Con blanqueo a base de cloro y secado agresivo la vida útil cae a la mitad o menos.</li>
+<li>Dividir el precio de la pieza entre los ciclos que aguanta da el costo real por uso. No existe un porcentaje fijo de la industria: sale de tus precios y de tu protocolo de lavado.</li>
+<li>La dotación recomendada es de 3 juegos por habitación (uno puesto, uno en lavandería, uno de reserva). Tener 3 juegos no encarece el costo por noche: lo que se consume es una lavada, sin importar cuántos juegos tengas en circulación. Lo que sí hace es evitar que laves la misma pieza a diario y se acabe en un tercio del tiempo.</li>
+</ul>
+</details>
+</section><section class="tool-card">
+<h2>
+<span class="num">7</span>
+                 Amenidades y consumibles
+            </h2>
+<p class="hint">Marca lo que sí pones en la habitación y ajusta el precio al que tú compras. "Por salida" reparte el costo entre las noches de la estancia promedio.</p>
+<div class="tbl" id="tblAmen">
+<div class="thead">
+<span class="t1">Artículo</span>
+<span class="t2">Precio</span>
+<span class="t3">Pzas</span>
+<span class="t4">Frecuencia</span>
+</div>
+</div>
+</section><section class="tool-card">
+<h2>
+<span class="num">8</span>
+                 Comisiones y margen
+            </h2>
+<p class="hint">Vender por agencia no cambia tu costo, pero sí la tarifa que necesitas publicar: de cada reserva se va un pedazo antes de que toque tu cuenta.</p>
+<div class="row">
+<label for="comOta">
+                    Comisión de agencias
+                    <span class="note">Booking y Expedia cobran entre 15% y 22%</span>
+</label>
+<div class="w-sm pct">
+<input id="comOta" inputmode="decimal" max="60" min="0" type="number" value="18"/>
+</div>
+</div>
+<div class="row">
+<label for="pctOta">Reservas que llegan por agencia</label>
+<div class="w-sm pct">
+<input id="pctOta" inputmode="decimal" max="100" min="0" type="number" value="50"/>
+</div>
+</div>
+<div class="row">
+<label for="comTdc">Comisión bancaria por tarjeta</label>
+<div class="w-sm pct">
+<input id="comTdc" inputmode="decimal" max="20" min="0" step="0.1" type="number" value="3.5"/>
+</div>
+</div>
+<div class="row">
+<label for="margen">Margen que quieres dejar</label>
+<div class="w-sm pct">
+<input id="margen" inputmode="decimal" max="80" min="0" type="number" value="25"/>
+</div>
+</div>
+<div class="row">
+<label for="impuestos">
+                    Sumar IVA e ISH a la tarifa mostrada
+                    <span class="note">16% de IVA más 3% de hospedaje en Oaxaca</span>
+</label>
+<div class="w-md">
+<select id="impuestos">
+<option selected="" value="0">No, mostrar tarifa neta</option>
+<option value="19">Sí, mostrar con impuestos</option>
+</select>
+</div>
+</div>
+</section><section class="tool-card">
+<h2>
+<span class="num">9</span>
+                 Lo que cobran a tu alrededor
+            </h2>
+<p class="hint">Tu costo te dice el piso. El mercado te dice el techo. Captura lo que cobran los alojamientos con los que de verdad compites: mismo tipo de huésped, misma zona, misma temporada. Toma las tarifas tal como las ves publicadas.</p>
+<div class="row">
+<label for="miTarifa">
+                    Tu tarifa promedio real
+                    <span class="note">Lo que cobras en promedio, ya con descuentos aplicados</span>
+</label>
+<div class="w-money money">
+<input id="miTarifa" inputmode="decimal" min="0" type="number" value="850"/>
+</div>
+</div>
+<p class="sub">Competencia directa</p>
+<div id="compList"></div>
+<button class="addBtn" id="btnAddComp" type="button">Agregar alojamiento</button>
+<div class="note-box" id="boxZona">—</div>
+<div class="flag" id="boxDiag">—</div>
+</section></div><aside aria-label="Resultados en tiempo real" class="calculator-sidebar"><div class="calculator-sidebar-sticky"><div class="live-result-label">Resultado en tiempo real</div><section class="result tool-card" id="result">
+<img alt="" aria-hidden="true" class="resultMark" src="./img/MALAK3.png"/>
+<h2>
+<span class="num">10</span>
+                 Tu número
+            </h2>
+<p class="cap">
+                Costo por noche vendida 
+                <button aria-label="Cómo se calcula" class="qbtn" data-p="qp0" data-q="costo" type="button">?</button>
+</p>
+<div class="big" id="bigCosto">
+                $0
+                <small>por habitación</small>
+</div>
+<p class="cap" id="capEquilibrio">—</p>
+<div class="qpanel" hidden="" id="qp0"></div>
+<div class="split">
+<div class="tile">
+<div class="k">
+                        Tarifa mínima para no perder 
+                        <button aria-label="Cómo se calcula" class="qbtn" data-p="qp1" data-q="tmin" type="button">?</button>
+</div>
+<div class="v" id="tMin">$0</div>
+</div>
+<div class="tile">
+<div class="k">
+                        Tarifa con tu margen 
+                        <button aria-label="Cómo se calcula" class="qbtn" data-p="qp1" data-q="trec" type="button">?</button>
+</div>
+<div class="v" id="tRec">$0</div>
+</div>
+</div>
+<div class="qpanel" hidden="" id="qp1"></div>
+<div class="split">
+<div class="tile">
+<div class="k">
+                        Costo mensual de habitaciones 
+                        <button aria-label="Cómo se calcula" class="qbtn" data-p="qp2" data-q="tmes" type="button">?</button>
+</div>
+<div class="v" id="tMes">$0</div>
+</div>
+<div class="tile">
+<div class="k">
+                        Noches vendidas al mes 
+                        <button aria-label="Cómo se calcula" class="qbtn" data-p="qp2" data-q="tnoches" type="button">?</button>
+</div>
+<div class="v" id="tNoches">0</div>
+</div>
+</div>
+<div class="qpanel" hidden="" id="qp2"></div>
+</section><section class="tool-card">
+<h2>A dónde se va cada peso</h2>
+<p class="hint tight">Por noche vendida. Los verdes oscuros son costos que pagas aunque el cuarto esté vacío; los claros solo ocurren cuando alguien duerme ahí.</p>
+<div class="pieWrap">
+<div id="pieSvg"></div>
+<div class="leg" id="pieLeg"></div>
+</div>
+<div class="flag" id="flagBlancos">—</div>
+</section>
+<section class="tool-card">
+<h2>Qué pasa si cambia tu ocupación</h2>
+<p class="hint tight">Mismos costos, distinta ocupación. Aquí se ve por qué bajar la tarifa en temporada baja rara vez alcanza para compensar.</p>
+<table class="occ" id="tblOcc">
+<thead>
+<tr>
+<th>Ocupación</th>
+<th>Noches/mes</th>
+<th>Costo por noche</th>
+<th>Tarifa mínima</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<div class="note-box">Si tu tarifa promedio real está por debajo de la columna de tarifa mínima, cada habitación que vendes te cuesta dinero. No es un problema de descuentos: es un problema de estructura o de ocupación.</div>
+</section>
+</div></aside></div>
 
-  <section class="hero">
-    <div class="shell hero-grid">
-      <div class="hero-copy">
-        <span class="eyebrow">Recurso para hotelería</span>
-        <h1>Conoce el costo de cada habitación que vendes.</h1>
-        <p>
-          Captura los gastos principales de tu hotel y obtén una estimación del costo
-          por noche vendida. La herramienta separa costos fijos y variables para que
-          el resultado sea fácil de entender.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#calculadora" class="btn btn-primary">Comenzar cálculo</a>
-          <a href="#resultado" class="btn btn-secondary">Ver resultado</a>
-        </div>
-      </div>
-
-      <aside class="hero-card">
-        <span class="hero-card-label">La idea es simple</span>
-        <strong>¿Cuánto cuesta operar una habitación ocupada?</strong>
-        <div class="hero-card-flow">
-          <span>Hotel</span><b>+</b><span>Operación</span><b>+</b><span>Blancos</span>
-        </div>
-        <p>Los datos se actualizan automáticamente conforme llenas la calculadora.</p>
-      </aside>
-    </div>
-  </section>
-
-  <section class="calculator-area" id="calculadora">
-    <div class="shell calc-layout">
-
-      <div class="calc-main">
-
-        <div class="calc-tools">
-          <button type="button" id="btnDemo">Cargar ejemplo</button>
-          <button type="button" id="btnReset">Borrar datos</button>
-        </div>
-
-        <!-- 1 -->
-        <section class="step-card">
-          <div class="step-head">
-            <span class="step-num">01</span>
-            <div>
-              <h2>Tu hotel</h2>
-              <p>Estos datos determinan cuántas noches vendidas absorben tus costos mensuales.</p>
-            </div>
-          </div>
-
-          <div class="field-grid">
-            <label class="field">
-              <span>Habitaciones totales</span>
-              <input type="number" id="rooms" value="20" min="1" inputmode="numeric">
-            </label>
-
-            <label class="field">
-              <span>Ocupación promedio</span>
-              <div class="suffix-input">
-                <input type="number" id="occ" value="55" min="1" max="100" inputmode="decimal">
-                <b>%</b>
-              </div>
-            </label>
-
-            <label class="field">
-              <span>Estancia promedio</span>
-              <div class="suffix-input">
-                <input type="number" id="los" value="1.8" min="1" step="0.1" inputmode="decimal">
-                <b>noches</b>
-              </div>
-            </label>
-
-            <label class="field">
-              <span>Días del mes</span>
-              <input type="number" id="dias" value="30" min="28" max="31" inputmode="numeric">
-            </label>
-          </div>
-
-          <div class="info-box" id="boxNoches">—</div>
-        </section>
-
-        <!-- 2 -->
-        <section class="step-card">
-          <div class="step-head">
-            <span class="step-num">02</span>
-            <div>
-              <h2>Servicios</h2>
-              <p>Captura tus recibos y la parte que realmente corresponde a las habitaciones.</p>
-            </div>
-          </div>
-
-          <div class="group-title">Electricidad</div>
-          <div class="field-grid three">
-            <label class="field">
-              <span>Monto del recibo</span>
-              <div class="money-input"><input type="number" id="luzMonto" value="18000" min="0"></div>
-            </label>
-            <label class="field">
-              <span>Periodo</span>
-              <select id="luzPer">
-                <option value="1">Mensual</option>
-                <option value="2" selected>Bimestral</option>
-              </select>
-            </label>
-            <label class="field">
-              <span>Uso de habitaciones</span>
-              <div class="suffix-input"><input type="number" id="luzPct" value="65" min="0" max="100"><b>%</b></div>
-            </label>
-          </div>
-
-          <div class="group-title">Agua</div>
-          <div class="field-grid three">
-            <label class="field">
-              <span>Monto del recibo</span>
-              <div class="money-input"><input type="number" id="aguaMonto" value="3200" min="0"></div>
-            </label>
-            <label class="field">
-              <span>Periodo</span>
-              <select id="aguaPer">
-                <option value="1">Mensual</option>
-                <option value="2" selected>Bimestral</option>
-                <option value="3">Trimestral</option>
-              </select>
-            </label>
-            <label class="field">
-              <span>Uso de habitaciones</span>
-              <div class="suffix-input"><input type="number" id="aguaPct" value="70" min="0" max="100"><b>%</b></div>
-            </label>
-          </div>
-
-          <div class="field-grid">
-            <label class="field">
-              <span>Pipas de agua al mes</span>
-              <div class="money-input"><input type="number" id="pipas" value="0" min="0"></div>
-            </label>
-            <label class="field">
-              <span>Gas al mes</span>
-              <div class="money-input"><input type="number" id="gasMonto" value="4500" min="0"></div>
-            </label>
-            <label class="field">
-              <span>Gas para habitaciones</span>
-              <div class="suffix-input"><input type="number" id="gasPct" value="85" min="0" max="100"><b>%</b></div>
-            </label>
-            <label class="field">
-              <span>Internet, TV y teléfono</span>
-              <div class="money-input"><input type="number" id="netMonto" value="1800" min="0"></div>
-            </label>
-          </div>
-        </section>
-
-        <!-- 3 -->
-        <section class="step-card">
-          <div class="step-head">
-            <span class="step-num">03</span>
-            <div>
-              <h2>Estructura</h2>
-              <p>Gastos que existen aunque una habitación no se venda.</p>
-            </div>
-          </div>
-
-          <div class="field-grid">
-            <label class="field"><span>Renta o crédito mensual</span><div class="money-input"><input type="number" id="renta" value="0" min="0"></div></label>
-            <label class="field"><span>Predial anual</span><div class="money-input"><input type="number" id="predial" value="9000" min="0"></div></label>
-            <label class="field"><span>Seguro anual</span><div class="money-input"><input type="number" id="seguro" value="14000" min="0"></div></label>
-            <label class="field"><span>Mantenimiento mensual</span><div class="money-input"><input type="number" id="manten" value="6000" min="0"></div></label>
-            <label class="field"><span>Administración mensual</span><div class="money-input"><input type="number" id="admin" value="3500" min="0"></div></label>
-            <label class="field"><span>Parte asignada a habitaciones</span><div class="suffix-input"><input type="number" id="estrPct" value="100" min="0" max="100"><b>%</b></div></label>
-          </div>
-        </section>
-
-        <!-- 4 -->
-        <section class="step-card">
-          <div class="step-head">
-            <span class="step-num">04</span>
-            <div>
-              <h2>Personal</h2>
-              <p>Incluye la nómina necesaria para operar las habitaciones.</p>
-            </div>
-          </div>
-
-          <div class="field-grid">
-            <label class="field"><span>Camaristas</span><input type="number" id="camNum" value="3" min="0"></label>
-            <label class="field"><span>Sueldo por camarista</span><div class="money-input"><input type="number" id="camSueldo" value="7500" min="0"></div></label>
-            <label class="field"><span>Recepcionistas</span><input type="number" id="recNum" value="2" min="0"></label>
-            <label class="field"><span>Sueldo por recepcionista</span><div class="money-input"><input type="number" id="recSueldo" value="8500" min="0"></div></label>
-            <label class="field"><span>Otra nómina mensual</span><div class="money-input"><input type="number" id="otrosN" value="9000" min="0"></div></label>
-            <label class="field"><span>Factor de carga social</span><input type="number" id="factor" value="1.35" min="1" step="0.01"></label>
-          </div>
-        </section>
-
-        <!-- 5 -->
-        <section class="step-card">
-          <div class="step-head">
-            <span class="step-num">05</span>
-            <div>
-              <h2>Lavandería</h2>
-              <p>Calcula lo que cuesta lavar la ropa que genera una habitación.</p>
-            </div>
-          </div>
-
-          <div class="segmented" id="segLav">
-            <button type="button" data-mode="propia" class="active">Propia</button>
-            <button type="button" data-mode="externa">Externa</button>
-            <button type="button" data-mode="mixta">Mixta</button>
-          </div>
-
-          <div class="field-grid">
-            <label class="field">
-              <span>Costo por kilo</span>
-              <div class="money-input"><input type="number" id="precioKg" value="12" min="0" step="0.5"></div>
-            </label>
-
-            <label class="field conditional" id="fieldPctExterna" hidden>
-              <span>Porcentaje enviado fuera</span>
-              <div class="suffix-input"><input type="number" id="pctExterna" value="30" min="0" max="100"><b>%</b></div>
-            </label>
-
-            <label class="field conditional" id="fieldKgExterno" hidden>
-              <span>Costo externo por kilo</span>
-              <div class="money-input"><input type="number" id="precioKgExt" value="27" min="0" step="0.5"></div>
-            </label>
-
-            <label class="field">
-              <span>Ropa por servicio</span>
-              <select id="tipoCama">
-                <option value="3.4">Individual · 3.4 kg</option>
-                <option value="4.5" selected>Matrimonial · 4.5 kg</option>
-                <option value="5.0">Queen · 5.0 kg</option>
-                <option value="5.5">King · 5.5 kg</option>
-                <option value="5.3">Dos individuales · 5.3 kg</option>
-                <option value="custom">Capturar peso</option>
-              </select>
-            </label>
-
-            <label class="field" id="fieldKgCustom" hidden>
-              <span>Kilos por servicio</span>
-              <div class="suffix-input"><input type="number" id="kgCustom" value="4.5" min="0" step="0.1"><b>kg</b></div>
-            </label>
-
-            <label class="field">
-              <span>Cambio de blancos</span>
-              <select id="frec">
-                <option value="1">Diario</option>
-                <option value="0.6" selected>Cada 2 noches</option>
-                <option value="0.45">Cada 3 noches</option>
-                <option value="salida">Solo en salida</option>
-              </select>
-            </label>
-
-            <label class="field">
-              <span>Limpieza por habitación</span>
-              <div class="money-input"><input type="number" id="quimicos" value="11" min="0" step="0.5"></div>
-            </label>
-          </div>
-
-          <label class="switch-row">
-            <input type="checkbox" id="colchaOn" checked>
-            <span>
-              <strong>Incluir lavado de colcha o cobertor</strong>
-              <small>Se prorratea según la frecuencia que indiques.</small>
-            </span>
-          </label>
-
-          <div class="field-grid compact" id="colchaFields">
-            <label class="field"><span>Peso</span><div class="suffix-input"><input type="number" id="colchaKg" value="1.5" min="0" step="0.1"><b>kg</b></div></label>
-            <label class="field"><span>Frecuencia</span>
-              <select id="colchaFrec">
-                <option value="1">Cada servicio</option>
-                <option value="4" selected>Cada 4 servicios</option>
-                <option value="8">Cada 8 servicios</option>
-                <option value="15">Una vez al mes</option>
-              </select>
-            </label>
-          </div>
-
-          <div class="info-box" id="boxLav">—</div>
-        </section>
-
-        <!-- 6 -->
-        <section class="step-card">
-          <div class="step-head">
-            <span class="step-num">06</span>
-            <div>
-              <h2>Reposición de blancos</h2>
-              <p>Convierte el desgaste de cada pieza en un costo por noche vendida.</p>
-            </div>
-          </div>
-
-          <div class="life-presets">
-            <span>Vida útil sugerida para piezas que se lavan:</span>
-            <div class="segmented" id="segVida">
-              <button type="button" data-life="120">120 lavadas</button>
-              <button type="button" data-life="250">250 lavadas</button>
-              <button type="button" data-life="300" class="active">300 lavadas</button>
-            </div>
-          </div>
-
-          <div class="linen-table">
-            <div class="linen-head">
-              <span>Pieza</span><span>Precio</span><span>Pzas.</span><span>Vida</span>
-            </div>
-            <div id="linenRows"></div>
-          </div>
-
-          <div class="group-title">Piezas que se reponen por tiempo</div>
-          <div class="linen-table">
-            <div class="linen-head">
-              <span>Pieza</span><span>Precio</span><span>Pzas.</span><span>Meses</span>
-            </div>
-            <div id="durableRows"></div>
-          </div>
-
-          <div class="field-grid compact merma-row">
-            <label class="field">
-              <span>Merma por daño o extravío</span>
-              <div class="suffix-input"><input type="number" id="merma" value="8" min="0" max="60"><b>%</b></div>
-            </label>
-          </div>
-
-          <div class="info-box" id="boxBlancos">—</div>
-        </section>
-
-        <!-- 7 -->
-        <section class="step-card">
-          <div class="step-head">
-            <span class="step-num">07</span>
-            <div>
-              <h2>Amenidades</h2>
-              <p>Activa solo lo que realmente entregas y ajusta el costo unitario.</p>
-            </div>
-          </div>
-
-          <div class="amenities-grid" id="amenitiesGrid"></div>
-        </section>
-
-      </div>
-
-      <aside class="result-column" id="resultado">
-        <section class="result-card">
-          <span class="result-eyebrow">Resultado estimado</span>
-          <p class="result-label">Costo por noche vendida</p>
-          <div class="result-big" id="resultTotal">$0</div>
-
-          <div class="result-split">
-            <div>
-              <span>Costos fijos</span>
-              <strong id="resultFixed">$0</strong>
-            </div>
-            <div>
-              <span>Costos variables</span>
-              <strong id="resultVariable">$0</strong>
-            </div>
-          </div>
-
-          <div class="result-meta">
-            <div><span>Noches vendidas/mes</span><strong id="resultNights">0</strong></div>
-            <div><span>Costo mensual habitaciones</span><strong id="resultMonth">$0</strong></div>
-          </div>
-        </section>
-
-        <section class="breakdown-card">
-          <div class="breakdown-head">
-            <span>Desglose por habitación</span>
-            <small>por noche vendida</small>
-          </div>
-          <div id="breakdown"></div>
-        </section>
-
-        <div class="result-note">
-          Esta herramienta es una estimación operativa. Sustituye los valores de ejemplo
-          por los datos reales de tu hotel para obtener un resultado útil.
-        </div>
-      </aside>
-
-    </div>
-  </section>
-
+<div class="quick-summary">
+<div class="d">
+<div class="dk">Costo por noche</div>
+<div class="dv" id="dockCosto">$0</div>
+</div>
+<div class="d">
+<div class="dk">Tarifa mínima</div>
+<div class="dv g" id="dockTarifa">$0</div>
+</div>
+<button id="btnVer" type="button">Ver desglose</button>
+</div>
+<div class="scope-note">
+<strong>Sobre este cálculo</strong>
+<p>Los valores precargados son referencias de producto de línea hotelera en México y sirven solo como punto de partida: el cálculo vale lo que valgan tus números reales. Este modelo cubre costos de operación de habitaciones; no incluye alimentos y bebidas, spa, eventos, depreciación de obra ni servicio de deuda.</p>
+<p><b>Calcuarto</b> es una herramienta desarrollada por MALAK para acompañar a sus clientes hoteleros. Tus datos se guardan únicamente en este dispositivo.</p>
+</div>
+</div>
+</section>
 </main>
-
 <footer class="calculator-footer">
-    <div class="shell calculator-footer-inner">
-
-        <img
-            src="./img/MALAK3.png"
-            alt="MALAK Distribuidora de Blancos"
-            class="calculator-footer-logo"
-        >
-
-        <p>
-            Herramientas de apoyo para clientes hoteleros · Oaxaca
-        </p>
-
-        <a href="./index.html">
-            Volver al sitio principal →
-        </a>
-
-    </div>
+<div class="shell calculator-footer-inner">
+<img alt="MALAK Distribuidora de Blancos" class="calculator-footer-logo" src="./img/MALAK3.png"/>
+<p>Herramientas de apoyo para clientes hoteleros · Oaxaca</p>
+<a href="./index.html">Volver al sitio principal →</a>
+</div>
 </footer>
-
 <script src="./js/costo-habitacion.js"></script>
 </body>
 </html>
