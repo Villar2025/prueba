@@ -1712,3 +1712,238 @@ table.occ tr.now td{
     transform:none !important;
   }
 }
+
+/* ==================================================
+   ALINEACIÓN GENERAL DE CAMPOS EDITABLES
+================================================== */
+
+:root{
+  --edit-width:170px;
+}
+
+
+/* --------------------------------
+   CAMPOS NORMALES
+-------------------------------- */
+
+.tool-card .row{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) var(--edit-width);
+  gap:24px;
+  align-items:center;
+}
+
+.tool-card .row > label{
+  min-width:0;
+}
+
+.tool-card .row .w-sm,
+.tool-card .row .w-md,
+.tool-card .row .w-money{
+  width:var(--edit-width);
+  min-width:var(--edit-width);
+  max-width:var(--edit-width);
+  margin:0;
+}
+
+.tool-card .row .w-sm input,
+.tool-card .row .w-md input,
+.tool-card .row .w-money input,
+.tool-card .row .w-sm select,
+.tool-card .row .w-md select,
+.tool-card .row .w-money select{
+  width:100%;
+}
+
+
+/* Valores calculados que aparecen donde normalmente hay un campo */
+.tool-card .row #kgMixVal{
+  width:var(--edit-width) !important;
+  min-width:var(--edit-width);
+  max-width:var(--edit-width);
+  text-align:right !important;
+}
+
+
+/* --------------------------------
+   CHECKBOX QUE OCUPA TODA LA FILA
+-------------------------------- */
+
+.tool-card .row > .chk:only-child{
+  grid-column:1 / -1;
+}
+
+
+/* --------------------------------
+   TABLAS DE BLANCOS Y AMENIDADES
+-------------------------------- */
+
+.tbl{
+  width:100%;
+}
+
+.thead,
+.trow{
+  display:grid;
+  grid-template-columns:
+    minmax(180px,1fr)
+    112px
+    58px
+    88px;
+  gap:10px;
+  align-items:center;
+}
+
+.thead .t1,
+.trow .t1,
+.thead .t2,
+.trow .t2,
+.thead .t3,
+.trow .t3,
+.thead .t4,
+.trow .t4{
+  width:auto;
+  min-width:0;
+}
+
+.thead .t2,
+.thead .t3,
+.thead .t4{
+  text-align:center;
+}
+
+.trow .t2 input,
+.trow .t3 input,
+.trow .t4 input,
+.trow .t4 select{
+  width:100%;
+}
+
+
+/* --------------------------------
+   TIPOS DE HABITACIÓN
+-------------------------------- */
+
+.rtTop{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:10px;
+  align-items:center;
+}
+
+.rtTop .rtName{
+  width:100%;
+}
+
+.rtBeds{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+}
+
+.rtBeds label{
+  min-width:0;
+}
+
+.rtBeds input{
+  width:100%;
+  text-align:center;
+}
+
+.rtFoot{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) var(--edit-width);
+  gap:24px;
+  align-items:center;
+}
+
+.rtFoot .rtN{
+  width:var(--edit-width);
+  max-width:var(--edit-width);
+  text-align:right;
+}
+
+
+/* --------------------------------
+   COMPETENCIA
+-------------------------------- */
+
+.cmpRow{
+  display:grid;
+  grid-template-columns:
+    minmax(0,1fr)
+    var(--edit-width)
+    34px;
+  gap:10px;
+  align-items:center;
+}
+
+.cmpRow .cmpName{
+  width:100%;
+  min-width:0;
+}
+
+.cmpRow .money{
+  width:var(--edit-width);
+  min-width:var(--edit-width);
+}
+
+.cmpRow .cmpT{
+  width:100%;
+}
+
+
+/* Cuando no aparece botón eliminar */
+.cmpRow:last-child{
+  align-items:center;
+}
+
+
+/* --------------------------------
+   MÓVIL
+-------------------------------- */
+
+@media(max-width:600px){
+
+  :root{
+    --edit-width:125px;
+  }
+
+  .tool-card .row{
+    grid-template-columns:minmax(0,1fr) var(--edit-width);
+    gap:12px;
+  }
+
+  .rtFoot{
+    grid-template-columns:minmax(0,1fr) var(--edit-width);
+    gap:12px;
+  }
+
+  .rtBeds{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .cmpRow{
+    grid-template-columns:minmax(0,1fr) 105px 34px;
+    gap:7px;
+  }
+
+  .cmpRow .money{
+    width:105px;
+    min-width:105px;
+  }
+
+  .tbl{
+    overflow-x:auto;
+  }
+
+  .thead,
+  .trow{
+    min-width:520px;
+    grid-template-columns:
+      minmax(180px,1fr)
+      112px
+      58px
+      88px;
+  }
+}
