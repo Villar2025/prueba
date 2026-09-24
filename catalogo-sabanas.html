@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Catálogo de sábanas y ropa de cama MALAK para hotelería.">
+  <title>Sábanas & Ropa de Cama | MALAK</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/catalogo-sabanas.css">
+</head>
+
+<body>
+
+<header class="sheets-header">
+  <div class="sheets-header-inner">
+    <a href="./index.html" class="sheets-brand" aria-label="Ir al inicio de MALAK">
+      <img src="./img/logo.png" alt="MALAK Distribuidora de Blancos" class="sheets-logo">
+    </a>
+
+    <nav class="sheets-nav" id="sheetsNav" aria-label="Navegación de sábanas">
+      <a href="./catalogo.html">Catálogo</a>
+      <a href="#juegos">Juegos hoteleros</a>
+      <a href="#color">Color</a>
+      <a href="#planas">Planas & fundas</a>
+    </nav>
+
+    <button class="sheets-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="sheets-hero">
+    <div class="sheets-shell hero-layout">
+
+      <div class="hero-copy">
+        <span class="eyebrow">Sábanas & ropa de cama</span>
+
+        <h1>La base perfecta para una gran experiencia.</h1>
+
+        <p>
+          Juegos hoteleros pensados para distintos niveles de operación,
+          desde líneas esenciales hasta opciones de mayor número de hilos.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#juegos" class="btn btn-primary">Explorar líneas</a>
+          <a href="https://wa.me/529511133384" target="_blank" rel="noopener" class="btn btn-secondary">
+            Solicitar cotización
+          </a>
+        </div>
+      </div>
+
+      <div class="sheet-art" aria-hidden="true">
+        <div class="sheet-layer layer-back"></div>
+        <div class="sheet-layer layer-mid"></div>
+        <div class="sheet-layer layer-front"></div>
+
+        <div class="sheet-seam seam-one"></div>
+        <div class="sheet-seam seam-two"></div>
+
+        <div class="sheet-note">
+          <span>El juego incluye</span>
+          <strong>Cajón + Plana + Fundas</strong>
+          <small>Configuraciones para hotelería y proyectos de hospedaje.</small>
+        </div>
+
+        <div class="sheet-thread-mark">
+          <span>150</span>
+          <span>180</span>
+          <span>200</span>
+          <span>300</span>
+          <span>500</span>
+          <small>HILOS</small>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- JUEGOS HOTELEROS -->
+  <section class="thread-section" id="juegos">
+    <div class="sheets-shell">
+
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Juegos de sábanas hoteleros</span>
+          <h2>Elige la línea por composición y número de hilos.</h2>
+        </div>
+
+        <p>
+          Cada juego incluye sábana de cajón, sábana plana y fundas.
+          Selecciona una línea para consultar sus configuraciones.
+        </p>
+      </div>
+
+      <div class="thread-explorer">
+
+        <div class="thread-tabs" role="tablist" aria-label="Líneas de sábanas hoteleras">
+
+          <button class="thread-tab is-active" type="button" role="tab" aria-selected="true" data-thread="base">
+            <span class="thread-number">150</span>
+            <span class="thread-unit">hilos</span>
+            <strong>Base</strong>
+            <small>50/50</small>
+          </button>
+
+          <button class="thread-tab" type="button" role="tab" aria-selected="false" data-thread="esencial">
+            <span class="thread-number">180</span>
+            <span class="thread-unit">hilos</span>
+            <strong>Esencial</strong>
+            <small>50/50</small>
+          </button>
+
+          <button class="thread-tab" type="button" role="tab" aria-selected="false" data-thread="selecta">
+            <span class="thread-number">200</span>
+            <span class="thread-unit">hilos</span>
+            <strong>Selecta</strong>
+            <small>50/50</small>
+          </button>
+
+          <button class="thread-tab" type="button" role="tab" aria-selected="false" data-thread="prestigio">
+            <span class="thread-number">300</span>
+            <span class="thread-unit">hilos</span>
+            <strong>Prestigio</strong>
+            <small>100% algodón</small>
+          </button>
+
+          <button class="thread-tab thread-tab-premium" type="button" role="tab" aria-selected="false" data-thread="premium500">
+            <span class="thread-number">500</span>
+            <span class="thread-unit">hilos</span>
+            <strong>500 Hilos</strong>
+            <small>100% algodón</small>
+          </button>
+
+        </div>
+
+        <div class="thread-panel">
+
+          <div class="thread-panel-head">
+            <div>
+              <span class="panel-kicker" id="threadComposition">50/50</span>
+              <h3 id="threadTitle">Base · 150 hilos</h3>
+            </div>
+
+            <div class="thread-panel-actions">
+              <span class="thread-depth" id="threadDepth">Cajón 30 cm</span>
+
+              <button
+                class="gallery-button gallery-trigger"
+                id="threadGalleryBtn"
+                type="button"
+                data-gallery="base">
+                Ver imágenes
+                <span>↗</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="thread-table-wrap">
+            <table class="thread-table">
+              <thead>
+                <tr>
+                  <th>Tamaño</th>
+                  <th>Cajón</th>
+                  <th>Funda</th>
+                  <th>Piezas de funda</th>
+                </tr>
+              </thead>
+
+              <tbody id="threadTableBody"></tbody>
+            </table>
+          </div>
+
+          <div class="thread-note" id="threadNote" hidden></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SÁBANAS DE COLOR -->
+  <section class="color-section" id="color">
+    <div class="sheets-shell">
+
+      <div class="section-heading section-heading-light">
+        <div>
+          <span class="eyebrow">Juegos de sábanas de color</span>
+          <h2>Dos composiciones, dos formas de vestir la cama.</h2>
+        </div>
+
+        <p>
+          El catálogo distingue opciones de algodón y microfibra,
+          cada una con su propia configuración de cajón y funda.
+        </p>
+      </div>
+
+      <div class="material-split">
+
+        <article class="material-card material-cotton">
+          <div class="material-mark">A</div>
+
+          <div class="material-heading">
+            <span class="material-label">Composición</span>
+            <h3>Algodón</h3>
+            <p>Cajón de 30 cm y funda estándar según tamaño.</p>
+          </div>
+
+          <div class="material-specs">
+            <div><span>Individual</span><strong>30 cm · 40×70 · ×1</strong></div>
+            <div><span>Matrimonial</span><strong>30 cm · 40×70 · ×2</strong></div>
+            <div><span>Queen</span><strong>30 cm · 40×70 · ×2</strong></div>
+            <div><span>King Size</span><strong>30 cm · 50×90 · ×2</strong></div>
+          </div>
+
+          <button
+            class="gallery-button gallery-trigger material-gallery-button"
+            type="button"
+            data-gallery="colorAlgodon">
+            Ver imágenes
+            <span>↗</span>
+          </button>
+        </article>
+
+
+        <article class="material-card material-micro">
+          <div class="material-mark">M</div>
+
+          <div class="material-heading">
+            <span class="material-label">Composición</span>
+            <h3>Microfibra</h3>
+            <p>Cajón de 40 cm y fundas de mayor formato.</p>
+          </div>
+
+          <div class="material-specs">
+            <div><span>Individual</span><strong>40 cm · 50×80 · ×1</strong></div>
+            <div><span>Matrimonial</span><strong>40 cm · 50×80 · ×2</strong></div>
+            <div><span>Queen</span><strong>40 cm · 50×80 · ×2</strong></div>
+            <div><span>King Size</span><strong>40 cm · 50×100 · ×2</strong></div>
+          </div>
+
+          <button
+            class="gallery-button gallery-trigger material-gallery-button material-gallery-button-dark"
+            type="button"
+            data-gallery="colorMicrofibra">
+            Ver imágenes
+            <span>↗</span>
+          </button>
+        </article>
+
+      </div>
+
+      <p class="availability-copy">
+        Colores sujetos a disponibilidad. Consulta opciones vigentes para tu proyecto.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- PLANAS & FUNDAS -->
+  <section class="flat-section" id="planas">
+    <div class="sheets-shell">
+
+      <div class="flat-layout">
+
+        <div class="flat-intro">
+          <span class="eyebrow">Sábanas planas & fundas</span>
+          <h2>Versátiles, cómodas y fáciles de intercambiar.</h2>
+
+          <p>
+            Consulta las medidas disponibles según el número de hilos.
+            La disponibilidad puede variar.
+          </p>
+
+          <div class="flat-switch" role="tablist" aria-label="Sábanas planas por número de hilos">
+            <button class="flat-tab is-active" type="button" data-flat="180">180 hilos</button>
+            <button class="flat-tab" type="button" data-flat="200">200 hilos</button>
+            <button class="flat-tab" type="button" data-flat="300">300 hilos</button>
+          </div>
+        </div>
+
+        <div class="flat-panel">
+
+          <div class="flat-panel-top">
+            <div>
+              <span class="panel-kicker" id="flatComposition">180 hilos</span>
+              <h3 id="flatTitle">Sábanas planas & fundas</h3>
+            </div>
+
+            <div class="flat-panel-actions">
+              <span class="limited-badge" id="flatLimited" hidden>Bajo pedido</span>
+
+              <button
+                class="gallery-button gallery-trigger"
+                id="flatGalleryBtn"
+                type="button"
+                data-gallery="planas180">
+                Ver imágenes
+                <span>↗</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="flat-list" id="flatList"></div>
+
+          <p class="flat-note" id="flatNote"></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA FINAL -->
+  <section class="sheets-cta">
+    <div class="sheets-shell">
+      <div class="cta-card">
+        <div>
+          <span class="eyebrow">Atención MALAK</span>
+          <h2>Consulta disponibilidad para tu proyecto.</h2>
+          <p>
+            Compártenos las medidas y líneas que te interesan para preparar una cotización
+            de acuerdo con tus necesidades.
+          </p>
+        </div>
+
+        <a href="https://wa.me/529511133384" target="_blank" rel="noopener" class="btn btn-primary">
+          Solicitar cotización
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<!-- GALERÍA -->
+<div class="gallery-modal" id="galleryModal" aria-hidden="true">
+  <div class="gallery-backdrop" data-gallery-close></div>
+
+  <section class="gallery-dialog" role="dialog" aria-modal="true" aria-labelledby="galleryTitle">
+
+    <header class="gallery-header">
+      <div>
+        <span class="gallery-kicker">Galería MALAK</span>
+        <h2 id="galleryTitle">Sábanas</h2>
+      </div>
+
+      <button class="gallery-close" type="button" data-gallery-close aria-label="Cerrar galería">
+        ×
+      </button>
+    </header>
+
+    <div class="gallery-stage">
+
+      <button
+        class="gallery-arrow gallery-arrow-prev"
+        id="galleryPrev"
+        type="button"
+        aria-label="Imagen anterior">
+        ‹
+      </button>
+
+      <div class="gallery-image-wrap" id="galleryImageWrap">
+
+        <img id="galleryImage" src="" alt="" hidden>
+
+        <div class="gallery-empty" id="galleryEmpty">
+          <div class="gallery-empty-icon">M</div>
+          <strong>Galería preparada</strong>
+          <span>Las fotografías.</span>
+        </div>
+
+      </div>
+
+      <button
+        class="gallery-arrow gallery-arrow-next"
+        id="galleryNext"
+        type="button"
+        aria-label="Siguiente imagen">
+        ›
+      </button>
+
+    </div>
+
+    <footer class="gallery-footer">
+      <div class="gallery-counter" id="galleryCounter"></div>
+      <div class="gallery-thumbs" id="galleryThumbs"></div>
+    </footer>
+
+  </section>
+</div>
+
+
+<footer class="sheets-footer">
+  <div class="sheets-shell sheets-footer-inner">
+    <img src="./img/MALAK3.png" alt="MALAK Distribuidora de Blancos" class="sheets-footer-logo">
+    <p>Sábanas & ropa de cama · MALAK Distribuidora de Blancos</p>
+    <a href="./catalogo.html">Volver al catálogo →</a>
+  </div>
+</footer>
+
+<script src="./js/catalogo-sabanas.js"></script>
+
+</body>
+</html>

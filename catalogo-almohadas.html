@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Catálogo de almohadas MALAK para hotelería.">
+  <title>Almohadas | MALAK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/catalogo-almohadas.css">
+</head>
+<body>
+
+<header class="pillows-header">
+  <div class="pillows-header-inner">
+    <a href="./index.html" class="pillows-brand" aria-label="Ir al inicio de MALAK">
+      <img src="./img/logo.png" alt="MALAK Distribuidora de Blancos" class="pillows-logo">
+    </a>
+
+    <nav class="pillows-nav" id="pillowsNav" aria-label="Navegación de almohadas">
+      <a href="./catalogo.html">Catálogo</a>
+      <a href="#coleccion">Colección</a>
+      <a href="#formatos">Formatos</a>
+    </nav>
+
+    <button class="pillows-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<section class="pillows-hero">
+  <div class="pillows-shell pillows-hero-grid">
+
+    <div class="pillows-hero-copy">
+      <span class="eyebrow">Hotelería · Descanso</span>
+      <h1>El soporte perfecto para noches de descanso.</h1>
+      <p>
+        Explora la colección MALAK por formato y descubre las distintas
+        alternativas de almohada para cada estilo de habitación.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#coleccion" class="btn btn-primary">Explorar colección</a>
+        <a href="https://wa.me/529511133384" target="_blank" rel="noopener" class="btn btn-secondary">
+          Solicitar cotización
+        </a>
+      </div>
+    </div>
+
+    <div class="pillow-art" aria-hidden="true">
+      <div class="pillow pillow-one"><span class="pillow-seam"></span></div>
+      <div class="pillow pillow-two"><span class="pillow-seam"></span></div>
+      <div class="pillow pillow-three"><span class="pillow-seam"></span></div>
+
+      <div class="hero-seal">
+        <span>Selección MALAK</span>
+        <strong>Descanso hotelero</strong>
+        <small>Formatos estándar y king para diferentes necesidades.</small>
+      </div>
+
+      <div class="hero-format">
+        <span>50×70</span>
+        <span>50×90</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="collection-section" id="coleccion">
+  <div class="pillows-shell">
+
+    <div class="collection-intro">
+      <span class="eyebrow">Colección de almohadas</span>
+
+      <div class="collection-heading">
+        <h2>Elige primero el formato.</h2>
+        <p>
+          Cambia entre Estándar y King para consultar modelos, peso,
+          cualidad y abrir la galería de cada opción.
+        </p>
+      </div>
+    </div>
+
+    <div class="format-switch" id="formatos" role="tablist" aria-label="Formato de almohada">
+
+      <button class="format-tab is-active" type="button" data-format="standard" aria-selected="true">
+        <span class="format-code">01</span>
+        <span class="format-copy">
+          <small>Formato</small>
+          <strong>Estándar</strong>
+          <em>50 × 70 cm</em>
+        </span>
+        <span class="format-arrow">→</span>
+      </button>
+
+      <button class="format-tab" type="button" data-format="king" aria-selected="false">
+        <span class="format-code">02</span>
+        <span class="format-copy">
+          <small>Formato</small>
+          <strong>King</strong>
+          <em>50 × 90 cm</em>
+        </span>
+        <span class="format-arrow">→</span>
+      </button>
+
+    </div>
+
+    <div class="collection-panel">
+      <div class="collection-panel-head">
+        <div>
+          <span class="panel-kicker" id="formatLabel">Formato Estándar</span>
+          <h3 id="formatTitle">50 × 70 cm</h3>
+        </div>
+        <div class="panel-mark" id="formatMark">01</div>
+      </div>
+
+      <div class="product-grid" id="pillowGrid"></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="rest-section">
+  <div class="pillows-shell">
+    <div class="rest-card">
+      <div class="rest-copy">
+        <span class="eyebrow">Confort MALAK</span>
+        <h2>Una colección pensada para complementar cada habitación.</h2>
+      </div>
+
+      <div class="rest-lines" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pillows-cta">
+  <div class="pillows-shell">
+    <div class="cta-card">
+      <div>
+        <span class="eyebrow">Atención MALAK</span>
+        <h2>Consulta disponibilidad para tu proyecto.</h2>
+        <p>
+          Compártenos las medidas y líneas que te interesan para preparar una cotización
+          de acuerdo con tus necesidades.
+        </p>
+      </div>
+
+      <a href="https://wa.me/529511133384" target="_blank" rel="noopener" class="btn btn-primary">
+        Solicitar cotización
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="gallery-modal" id="galleryModal" aria-hidden="true">
+  <div class="gallery-backdrop" data-gallery-close></div>
+
+  <section class="gallery-dialog" role="dialog" aria-modal="true" aria-labelledby="galleryTitle">
+
+    <header class="gallery-header">
+      <div>
+        <span class="gallery-kicker">Galería MALAK</span>
+        <h2 id="galleryTitle">Producto</h2>
+      </div>
+
+      <div class="gallery-header-actions">
+        <button class="gallery-zoom" id="galleryZoom" type="button" aria-label="Ampliar imagen">
+          Ampliar
+        </button>
+
+        <button class="gallery-close" type="button" data-gallery-close aria-label="Cerrar galería">
+          ×
+        </button>
+      </div>
+    </header>
+
+    <div class="gallery-stage">
+      <button class="gallery-arrow gallery-arrow-prev" id="galleryPrev" type="button" aria-label="Imagen anterior">‹</button>
+
+      <div class="gallery-image-wrap" id="galleryImageWrap">
+        <img id="galleryImage" src="" alt="" hidden>
+
+        <div class="gallery-empty" id="galleryEmpty">
+          <div class="gallery-empty-monogram">M</div>
+          <strong>Galería preparada</strong>
+          <span>Las fotografías.</span>
+        </div>
+      </div>
+
+      <button class="gallery-arrow gallery-arrow-next" id="galleryNext" type="button" aria-label="Siguiente imagen">›</button>
+    </div>
+
+    <footer class="gallery-footer">
+      <div class="gallery-counter" id="galleryCounter"></div>
+      <div class="gallery-thumbs" id="galleryThumbs"></div>
+    </footer>
+
+  </section>
+</div>
+
+<footer class="pillows-footer">
+  <div class="pillows-shell pillows-footer-inner">
+    <img src="./img/MALAK3.png" alt="MALAK Distribuidora de Blancos" class="pillows-footer-logo">
+    <p>Almohadas · MALAK Distribuidora de Blancos</p>
+    <a href="./catalogo.html">Volver al catálogo →</a>
+  </div>
+</footer>
+
+<script src="./js/catalogo-almohadas.js"></script>
+</body>
+</html>
