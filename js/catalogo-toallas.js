@@ -1,40 +1,238 @@
-const menuToggle = document.querySelector(".towels-menu-toggle");
-const nav = document.getElementById("towelsNav");
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Explora el catálogo MALAK para hogar y hotelería. Cobertores y soluciones textiles para habitaciones, hospedaje y operación hotelera.">
+  <title>Catálogo | MALAK</title>
 
-if (menuToggle && nav) {
-  const closeMenu = () => {
-    nav.classList.remove("mobile-open");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Abrir menú");
-  };
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/catalogo-home.css">
+</head>
 
-  menuToggle.addEventListener("click", () => {
-    const isOpen = nav.classList.toggle("mobile-open");
+<body>
 
-    menuToggle.setAttribute(
-      "aria-expanded",
-      isOpen ? "true" : "false"
-    );
+<header class="catalog-header">
+  <div class="catalog-header-inner">
 
-    menuToggle.setAttribute(
-      "aria-label",
-      isOpen ? "Cerrar menú" : "Abrir menú"
-    );
-  });
+    <a href="./index.html" class="catalog-brand" aria-label="Ir al inicio de MALAK">
+      <img src="./img/logo.png" alt="MALAK Distribuidora de Blancos" class="catalog-logo">
+    </a>
 
-  nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", closeMenu);
-  });
+    <nav class="catalog-nav" id="catalogNav" aria-label="Navegación principal">
+      <a href="./index.html">Inicio</a>
+      <a href="./capacitacion.html">Capacitación</a>
+      <a href="./calculadora-costos-malak_1.html">Calculadora</a>
+    </nav>
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeMenu();
-    }
-  });
+    <button class="catalog-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 900) {
-      closeMenu();
-    }
-  });
-}
+  </div>
+</header>
+
+<main>
+
+<section class="catalog-hero">
+  <div class="catalog-shell catalog-hero-inner">
+    <span class="eyebrow">Catálogo MALAK</span>
+
+    <h1>Todo para vestir tus habitaciones.</h1>
+
+    <p>
+      Explora nuestras líneas para hogar y hotelería.
+      Encuentra productos, materiales y soluciones pensadas para cada necesidad.
+    </p>
+
+    <a href="#categorias" class="hero-arrow" aria-label="Ver categorías">
+      <span>Explorar categorías</span>
+      <strong aria-hidden="true">↓</strong>
+    </a>
+  </div>
+</section>
+
+<section class="catalog-categories" id="categorias">
+  <div class="catalog-shell">
+
+    <div class="section-heading">
+      <span class="eyebrow">Nuestras categorías</span>
+      <h2>¿Qué estás buscando?</h2>
+      <p>
+        Selecciona una categoría para comenzar.
+      </p>
+    </div>
+
+    <article class="mega-category mega-category-hotel">
+      <div class="mega-category-top">
+
+        <div class="mega-number" aria-hidden="true">01</div>
+
+        <div class="mega-copy">
+          <span class="category-kicker">Categoría Hotelería</span>
+          <h3>Hotelería</h3>
+          <p>
+            Blancos y textiles pensados para habitaciones, hospedaje
+            y operación hotelera.
+          </p>
+        </div>
+
+        <div class="mega-badge">
+          <span>9</span>
+          <small>líneas</small>
+        </div>
+      </div>
+
+      <div class="hotel-products">
+
+        <a href="./catalogo-toallas.html" class="hotel-item hotel-item-active">
+          <div>
+            <span class="item-index">01</span>
+            <strong>Toallas</strong>
+          </div>
+        
+          <span class="hotel-arrow">→</span>
+        </a>
+
+        <a href="./catalogo-sabanas.html" class="hotel-item hotel-item-active">
+          <div>
+            <span class="item-index">02</span>
+            <strong>Sábanas</strong>
+          </div>
+        
+          <span class="hotel-arrow">→</span>
+        </a>
+
+        <a href="./catalogo-almohadas.html" class="hotel-item hotel-item-active">
+          <div>
+            <span class="item-index">03</span>
+            <strong>Almohadas</strong>
+          </div>
+        
+          <span class="hotel-arrow">→</span>
+        </a>
+
+        <div class="hotel-item">
+          <div>
+            <span class="item-index">04</span>
+            <strong>Colchas y Edredones</strong>
+          </div>
+          <small>Próximamente</small>
+        </div>
+
+        <div class="hotel-item">
+          <div>
+            <span class="item-index">05</span>
+            <strong>Fundas e Insertos de Duvet</strong>
+          </div>
+          <small>Próximamente</small>
+        </div>
+
+        <div class="hotel-item">
+          <div>
+            <span class="item-index">06</span>
+            <strong>Cubre colchones</strong>
+          </div>
+          <small>Próximamente</small>
+        </div>
+
+        <div class="hotel-item">
+          <div>
+            <span class="item-index">07</span>
+            <strong>Cobertor Ligero</strong>
+          </div>
+          <small>Próximamente</small>
+        </div>
+
+        <div class="hotel-item">
+          <div>
+            <span class="item-index">08</span>
+            <strong>Fundas y protectores de Almohada</strong>
+          </div>
+          <small>Próximamente</small>
+        </div>
+
+        <div class="hotel-item">
+          <div>
+            <span class="item-index">09</span>
+            <strong>Productos artesanales</strong>
+          </div>
+          <small>Próximamente</small>
+        </div>
+
+      </div>
+    </article>
+
+    <article class="mega-category mega-category-home">
+      <div class="mega-category-top">
+
+        <div class="mega-number" aria-hidden="true">02</div>
+
+        <div class="mega-copy">
+          <span class="category-kicker">Categoría Hogar</span>
+          <h3>Hogar</h3>
+          <p>
+            Textiles para sumar confort, diseño y calidez a cada espacio.
+          </p>
+        </div>
+
+        <div class="mega-badge">
+          <span>1</span>
+          <small>línea disponible</small>
+        </div>
+      </div>
+
+      <a href="./catalogo-cobertores.html" class="home-product-link">
+        <div>
+          <span class="item-index">01</span>
+          <div>
+            <strong>Cobertores</strong>
+            <small>Nimbus · Bruma · Glaze · Boutique</small>
+          </div>
+        </div>
+
+        <span class="home-arrow" aria-hidden="true">→</span>
+      </a>
+    </article>
+
+  </div>
+</section>
+
+<section class="catalog-help">
+  <div class="catalog-shell">
+    <div class="help-card">
+
+      <div>
+        <span class="eyebrow">Atención personalizada</span>
+        <h2>¿Necesitas ayuda para elegir?</h2>
+        <p>
+          Cuéntanos qué estás buscando y te ayudamos a encontrar la opción adecuada
+          para tu hogar, hotel o proyecto.
+        </p>
+      </div>
+
+      <a href="https://wa.me/529511133384" target="_blank" rel="noopener" class="whatsapp-button">
+        Hablar con MALAK
+        <span aria-hidden="true">↗</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="catalog-footer">
+  <div class="catalog-shell catalog-footer-inner">
+    <img src="./img/MALAK3.png" alt="MALAK Distribuidora de Blancos" class="catalog-footer-logo">
+    <p>Distribuidora de Blancos · Oaxaca</p>
+    <a href="./index.html">Volver al inicio →</a>
+  </div>
+</footer>
+
+<script src="./js/catalogo-home.js"></script>
+</body>
+</html>
