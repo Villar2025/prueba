@@ -1,130 +1,63 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const menuToggle = document.querySelector(".training-menu-toggle");
-    const headerNav = document.querySelector(".training-header-nav");
-
-    if (menuToggle && headerNav) {
-
-        const closeMenu = () => {
-            menuToggle.classList.remove("active");
-            headerNav.classList.remove("mobile-open");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            menuToggle.setAttribute(
-                "aria-label",
-                "Abrir menú"
-            );
-        };
-
-        menuToggle.addEventListener("click", () => {
-
-            const isOpen =
-                headerNav.classList.toggle("mobile-open");
-
-            menuToggle.classList.toggle(
-                "active",
-                isOpen
-            );
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                isOpen ? "true" : "false"
-            );
-
-            menuToggle.setAttribute(
-                "aria-label",
-                isOpen
-                    ? "Cerrar menú"
-                    : "Abrir menú"
-            );
-        });
-
-        headerNav
-            .querySelectorAll("a")
-            .forEach((link) => {
-
-                link.addEventListener(
-                    "click",
-                    closeMenu
-                );
-
-            });
-
-        window.addEventListener("resize", () => {
-
-            if (window.innerWidth > 820) {
-                closeMenu();
-            }
-
-        });
-
-    }
-
-
-    // ==========================
-    // NAVEGACIÓN DE SECCIONES
-    // ==========================
-
-    const sectionLinks =
-        document.querySelectorAll(
-            ".training-section-nav a"
-        );
+    /* Navegación de secciones de Capacitación */
+    const sectionLinks = document.querySelectorAll(".training-section-nav a");
 
     const sections = [...sectionLinks]
-        .map((link) =>
-            document.querySelector(
-                link.getAttribute("href")
-            )
-        )
+        .map((link) => document.querySelector(link.getAttribute("href")))
         .filter(Boolean);
 
+    if ("IntersectionObserver" in window && sections.length) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
 
-    if (
-        "IntersectionObserver" in window &&
-        sections.length
-    ) {
-
-        const observer =
-            new IntersectionObserver(
-                (entries) => {
-
-                    entries.forEach((entry) => {
-
-                        if (!entry.isIntersecting) {
-                            return;
-                        }
-
-                        sectionLinks.forEach(
-                            (link) => {
-
-                                link.classList.toggle(
-                                    "active",
-                                    link.getAttribute("href") ===
-                                    `#${entry.target.id}`
-                                );
-
-                            }
+                    sectionLinks.forEach((link) => {
+                        link.classList.toggle(
+                            "active",
+                            link.getAttribute("href") === `#${entry.target.id}`
                         );
-
                     });
+                });
+            },
+            {
+                rootMargin: "-35% 0px -55% 0px",
+                threshold: 0
+            }
+        );
 
-                },
-                {
-                    rootMargin:
-                        "-35% 0px -55% 0px",
-                    threshold: 0
-                }
-            );
-
-
-        sections.forEach((section) => {
-            observer.observe(section);
-        });
-
+        sections.forEach((section) => observer.observe(section));
     }
-
 });
+
+/* Navegación móvil MALAK */
+(function () {
+  var toggle = document.querySelector('.menu-toggle');
+  var nav = document.getElementById('mainNav');
+  if (!toggle || !nav) return;
+
+  function closeMenu() {
+    nav.classList.remove('mobile-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir menú');
+  }
+
+  toggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('mobile-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  });
+
+  Array.prototype.forEach.call(nav.querySelectorAll('a'), function (link) {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') closeMenu();
+  });
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 700) closeMenu();
+  });
+})();
