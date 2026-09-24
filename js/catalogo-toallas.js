@@ -1,238 +1,836 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Explora el catálogo MALAK para hogar y hotelería. Cobertores y soluciones textiles para habitaciones, hospedaje y operación hotelera.">
-  <title>Catálogo | MALAK</title>
+(() => {
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/catalogo-home.css">
-</head>
+  /* ==================================================
+     GALERÍAS DE PRODUCTOS
+  ================================================== */
 
-<body>
+  const galleries = {
 
-<header class="catalog-header">
-  <div class="catalog-header-inner">
+    hilasa: {
+      title: "Hilasa Esencial",
+      images: [
+        {
+          src: "./img/catalogo/toallas/hilasa-medio-bano.png",
+          alt: "Hilasa Esencial · Medio baño"
+        },
+        {
+          src: "./img/catalogo/toallas/hilasa-facial.png",
+          alt: "Hilasa Esencial · Facial"
+        },
+        {
+          src: "./img/catalogo/toallas/hilasa-pullman.png",
+          alt: "Hilasa Esencial · Pullman"
+        },
+        {
+          src: "./img/catalogo/toallas/hilasa-manos.png",
+          alt: "Hilasa Esencial · Manos"
+        },
+        {
+          src: "./img/catalogo/toallas/hilasa-bano.png",
+          alt: "Hilasa Esencial · Baño"
+        }
+      ]
+    },
 
-    <a href="./index.html" class="catalog-brand" aria-label="Ir al inicio de MALAK">
-      <img src="./img/logo.png" alt="MALAK Distribuidora de Blancos" class="catalog-logo">
-    </a>
 
-    <nav class="catalog-nav" id="catalogNav" aria-label="Navegación principal">
-      <a href="./index.html">Inicio</a>
-      <a href="./capacitacion.html">Capacitación</a>
-      <a href="./calculadora-costos-malak_1.html">Calculadora</a>
-    </nav>
+    torzal: {
+      title: "Torzal Clásica",
+      images: [
+        {
+          src: "./img/catalogo/toallas/torzal-01.jpeg",
+          alt: "Torzal Clásica MALAK · Imagen 1"
+        },
+        {
+          src: "./img/catalogo/toallas/torzal-02.jpeg",
+          alt: "Torzal Clásica MALAK · Imagen 2"
+        },
+        {
+          src: "./img/catalogo/toallas/torzal-03.jpeg",
+          alt: "Torzal Clásica MALAK · Imagen 3"
+        }
+      ]
+    },
 
-    <button class="catalog-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
 
-  </div>
-</header>
+    torzalPlus: {
+      title: "Torzal Plus",
+      images: [
+        {
+          src: "./img/catalogo/toallas/torzal-plus-01.jpg",
+          alt: "Torzal Plus MALAK · Imagen 1"
+        },
+        {
+          src: "./img/catalogo/toallas/torzal-plus-02.jpeg",
+          alt: "Torzal Plus MALAK · Imagen 2"
+        },
+        {
+          src: "./img/catalogo/toallas/torzal-plus-03.jpeg",
+          alt: "Torzal Plus MALAK · Imagen 3"
+        }
+      ]
+    },
 
-<main>
 
-<section class="catalog-hero">
-  <div class="catalog-shell catalog-hero-inner">
-    <span class="eyebrow">Catálogo MALAK</span>
+    egipcia: {
+      title: "Egipcia",
+      images: [
+        {
+          src: "./img/catalogo/toallas/egipcia-01.png",
+          alt: "Toalla Egipcia MALAK · Imagen 1"
+        },
+        {
+          src: "./img/catalogo/toallas/egipcia-02.png",
+          alt: "Toalla Egipcia MALAK · Imagen 2"
+        }
+      ]
+    },
 
-    <h1>Todo para vestir tus habitaciones.</h1>
 
-    <p>
-      Explora nuestras líneas para hogar y hotelería.
-      Encuentra productos, materiales y soluciones pensadas para cada necesidad.
-    </p>
+    alberca: {
+      title: "Toallas de alberca",
+      images: [
+        {
+          src: "./img/catalogo/toallas/alberca-01.jpeg",
+          alt: "Toallas de alberca MALAK · Imagen 1"
+        },
+        {
+          src: "./img/catalogo/toallas/alberca-02.jpg",
+          alt: "Toallas de alberca MALAK · Imagen 2"
+        }
+      ]
+    },
 
-    <a href="#categorias" class="hero-arrow" aria-label="Ver categorías">
-      <span>Explorar categorías</span>
-      <strong aria-hidden="true">↓</strong>
-    </a>
-  </div>
-</section>
 
-<section class="catalog-categories" id="categorias">
-  <div class="catalog-shell">
+    tapete: {
+      title: "Tapete HZ",
+      images: [
+        {
+          src: "./img/catalogo/toallas/tapete-01.jpg",
+          alt: "Tapete HZ MALAK · Imagen 1"
+        },
+        {
+          src: "./img/catalogo/toallas/tapete-02.jpg",
+          alt: "Tapete HZ MALAK · Imagen 2"
+        }
+      ]
+    }
 
-    <div class="section-heading">
-      <span class="eyebrow">Nuestras categorías</span>
-      <h2>¿Qué estás buscando?</h2>
-      <p>
-        Selecciona una categoría para comenzar.
-      </p>
-    </div>
+  };
 
-    <article class="mega-category mega-category-hotel">
-      <div class="mega-category-top">
 
-        <div class="mega-number" aria-hidden="true">01</div>
+  /* ==================================================
+     MENÚ MÓVIL
+  ================================================== */
 
-        <div class="mega-copy">
-          <span class="category-kicker">Categoría Hotelería</span>
-          <h3>Hotelería</h3>
-          <p>
-            Blancos y textiles pensados para habitaciones, hospedaje
-            y operación hotelera.
-          </p>
-        </div>
+  const menuToggle =
+    document.querySelector(
+      ".towels-menu-toggle"
+    );
 
-        <div class="mega-badge">
-          <span>9</span>
-          <small>líneas</small>
-        </div>
-      </div>
+  const nav =
+    document.querySelector(
+      ".towels-nav"
+    );
 
-      <div class="hotel-products">
 
-        <a href="./catalogo-toallas.html" class="hotel-item hotel-item-active">
-          <div>
-            <span class="item-index">01</span>
-            <strong>Toallas</strong>
-          </div>
-        
-          <span class="hotel-arrow">→</span>
-        </a>
+  if (menuToggle && nav) {
 
-        <a href="./catalogo-sabanas.html" class="hotel-item hotel-item-active">
-          <div>
-            <span class="item-index">02</span>
-            <strong>Sábanas</strong>
-          </div>
-        
-          <span class="hotel-arrow">→</span>
-        </a>
+    menuToggle.addEventListener(
+      "click",
+      () => {
 
-        <a href="./catalogo-almohadas.html" class="hotel-item hotel-item-active">
-          <div>
-            <span class="item-index">03</span>
-            <strong>Almohadas</strong>
-          </div>
-        
-          <span class="hotel-arrow">→</span>
-        </a>
+        const open =
+          nav.classList.toggle(
+            "mobile-open"
+          );
 
-        <div class="hotel-item">
-          <div>
-            <span class="item-index">04</span>
-            <strong>Colchas y Edredones</strong>
-          </div>
-          <small>Próximamente</small>
-        </div>
+        menuToggle.setAttribute(
+          "aria-expanded",
+          String(open)
+        );
 
-        <div class="hotel-item">
-          <div>
-            <span class="item-index">05</span>
-            <strong>Fundas e Insertos de Duvet</strong>
-          </div>
-          <small>Próximamente</small>
-        </div>
+      }
+    );
 
-        <div class="hotel-item">
-          <div>
-            <span class="item-index">06</span>
-            <strong>Cubre colchones</strong>
-          </div>
-          <small>Próximamente</small>
-        </div>
 
-        <div class="hotel-item">
-          <div>
-            <span class="item-index">07</span>
-            <strong>Cobertor Ligero</strong>
-          </div>
-          <small>Próximamente</small>
-        </div>
+    nav
+      .querySelectorAll("a")
+      .forEach(link => {
 
-        <div class="hotel-item">
-          <div>
-            <span class="item-index">08</span>
-            <strong>Fundas y protectores de Almohada</strong>
-          </div>
-          <small>Próximamente</small>
-        </div>
+        link.addEventListener(
+          "click",
+          () => {
 
-        <div class="hotel-item">
-          <div>
-            <span class="item-index">09</span>
-            <strong>Productos artesanales</strong>
-          </div>
-          <small>Próximamente</small>
-        </div>
+            nav.classList.remove(
+              "mobile-open"
+            );
 
-      </div>
-    </article>
+            menuToggle.setAttribute(
+              "aria-expanded",
+              "false"
+            );
 
-    <article class="mega-category mega-category-home">
-      <div class="mega-category-top">
+          }
+        );
 
-        <div class="mega-number" aria-hidden="true">02</div>
+      });
 
-        <div class="mega-copy">
-          <span class="category-kicker">Categoría Hogar</span>
-          <h3>Hogar</h3>
-          <p>
-            Textiles para sumar confort, diseño y calidez a cada espacio.
-          </p>
-        </div>
+  }
 
-        <div class="mega-badge">
-          <span>1</span>
-          <small>línea disponible</small>
-        </div>
-      </div>
 
-      <a href="./catalogo-cobertores.html" class="home-product-link">
-        <div>
-          <span class="item-index">01</span>
-          <div>
-            <strong>Cobertores</strong>
-            <small>Nimbus · Bruma · Glaze · Boutique</small>
-          </div>
-        </div>
+  /* ==================================================
+     ELEMENTOS DE LA GALERÍA
+  ================================================== */
 
-        <span class="home-arrow" aria-hidden="true">→</span>
-      </a>
-    </article>
+  const modal =
+    document.getElementById(
+      "galleryModal"
+    );
 
-  </div>
-</section>
+  const title =
+    document.getElementById(
+      "galleryTitle"
+    );
 
-<section class="catalog-help">
-  <div class="catalog-shell">
-    <div class="help-card">
+  const image =
+    document.getElementById(
+      "galleryImage"
+    );
 
-      <div>
-        <span class="eyebrow">Atención personalizada</span>
-        <h2>¿Necesitas ayuda para elegir?</h2>
-        <p>
-          Cuéntanos qué estás buscando y te ayudamos a encontrar la opción adecuada
-          para tu hogar, hotel o proyecto.
-        </p>
-      </div>
+  const counter =
+    document.getElementById(
+      "galleryCounter"
+    );
 
-      <a href="https://wa.me/529511133384" target="_blank" rel="noopener" class="whatsapp-button">
-        Hablar con MALAK
-        <span aria-hidden="true">↗</span>
-      </a>
+  const thumbs =
+    document.getElementById(
+      "galleryThumbs"
+    );
 
-    </div>
-  </div>
-</section>
+  const prev =
+    document.getElementById(
+      "galleryPrev"
+    );
 
-</main>
+  const next =
+    document.getElementById(
+      "galleryNext"
+    );
 
-<footer class="catalog-footer">
-  <div class="catalog-shell catalog-footer-inner">
-    <img src="./img/MALAK3.png" alt="MALAK Distribuidora de Blancos" class="catalog-footer-logo">
-    <p>Distribuidora de Blancos · Oaxaca</p>
-    <a href="./index.html">Volver al inicio →</a>
-  </div>
-</footer>
+  const zoom =
+    document.getElementById(
+      "galleryZoom"
+    );
 
-<script src="./js/catalogo-home.js"></script>
-</body>
-</html>
+  const imageWrap =
+    document.getElementById(
+      "galleryImageWrap"
+    );
+
+
+  if (
+    !modal ||
+    !title ||
+    !image ||
+    !counter ||
+    !thumbs ||
+    !prev ||
+    !next ||
+    !zoom ||
+    !imageWrap
+  ) {
+
+    return;
+
+  }
+
+
+  let activeGallery = null;
+
+  let activeIndex = 0;
+
+  let lastFocused = null;
+
+  let touchStartX = 0;
+
+  let touchStartY = 0;
+
+
+  /* ==================================================
+     QUITAR ZOOM
+  ================================================== */
+
+  function resetZoom() {
+
+    imageWrap.classList.remove(
+      "is-zoomed"
+    );
+
+    zoom.textContent =
+      "Ampliar";
+
+    zoom.setAttribute(
+      "aria-label",
+      "Ampliar imagen"
+    );
+
+    imageWrap.scrollTop = 0;
+
+    imageWrap.scrollLeft = 0;
+
+  }
+
+
+  /* ==================================================
+     MINIATURAS
+  ================================================== */
+
+  function renderThumbs() {
+
+    thumbs.innerHTML = "";
+
+
+    activeGallery.images
+      .forEach(
+        (item, index) => {
+
+          const button =
+            document.createElement(
+              "button"
+            );
+
+          button.type =
+            "button";
+
+          button.className =
+            "gallery-thumb";
+
+          button.setAttribute(
+            "aria-label",
+            `Ver imagen ${index + 1}`
+          );
+
+
+          const thumb =
+            document.createElement(
+              "img"
+            );
+
+          thumb.src =
+            item.src;
+
+          thumb.alt = "";
+
+          thumb.setAttribute(
+            "data-no-photo-editor",
+            ""
+          );
+
+
+          button.appendChild(
+            thumb
+          );
+
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              showImage(index);
+
+            }
+          );
+
+
+          thumbs.appendChild(
+            button
+          );
+
+        }
+      );
+
+  }
+
+
+  /* ==================================================
+     MOSTRAR IMAGEN
+  ================================================== */
+
+  function showImage(index) {
+
+    const total =
+      activeGallery.images.length;
+
+
+    if (index < 0) {
+
+      index =
+        total - 1;
+
+    }
+
+
+    if (index >= total) {
+
+      index = 0;
+
+    }
+
+
+    activeIndex =
+      index;
+
+
+    const item =
+      activeGallery.images[index];
+
+
+    resetZoom();
+
+
+    image.src =
+      item.src;
+
+    image.alt =
+      item.alt;
+
+
+    counter.textContent =
+      `${index + 1} de ${total}`;
+
+
+    [
+      ...thumbs.children
+    ].forEach(
+      (thumb, thumbIndex) => {
+
+        thumb.classList.toggle(
+          "is-active",
+          thumbIndex === index
+        );
+
+
+        if (
+          thumbIndex === index
+        ) {
+
+          thumb.scrollIntoView({
+
+            behavior:
+              "smooth",
+
+            block:
+              "nearest",
+
+            inline:
+              "nearest"
+
+          });
+
+        }
+
+      }
+    );
+
+
+    const multiple =
+      total > 1;
+
+
+    prev.hidden =
+      !multiple;
+
+    next.hidden =
+      !multiple;
+
+  }
+
+
+  /* ==================================================
+     ABRIR GALERÍA
+  ================================================== */
+
+  function openGallery(
+    key,
+    opener
+  ) {
+
+    const selected =
+      galleries[key];
+
+
+    if (!selected) {
+
+      return;
+
+    }
+
+
+    activeGallery =
+      selected;
+
+    activeIndex = 0;
+
+    lastFocused =
+      opener ||
+      document.activeElement;
+
+
+    title.textContent =
+      selected.title;
+
+
+    renderThumbs();
+
+    showImage(0);
+
+
+    modal.classList.add(
+      "is-open"
+    );
+
+    modal.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+
+    document.body.classList.add(
+      "gallery-open"
+    );
+
+
+    const close =
+      modal.querySelector(
+        ".gallery-close"
+      );
+
+
+    if (close) {
+
+      close.focus();
+
+    }
+
+  }
+
+
+  /* ==================================================
+     CERRAR GALERÍA
+  ================================================== */
+
+  function closeGallery() {
+
+    modal.classList.remove(
+      "is-open"
+    );
+
+    modal.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+
+    document.body.classList.remove(
+      "gallery-open"
+    );
+
+
+    resetZoom();
+
+
+    if (
+      lastFocused &&
+      typeof lastFocused.focus ===
+      "function"
+    ) {
+
+      lastFocused.focus();
+
+    }
+
+  }
+
+
+  /* ==================================================
+     BOTONES VER IMÁGENES
+  ================================================== */
+
+  document
+    .querySelectorAll(
+      ".gallery-trigger"
+    )
+    .forEach(trigger => {
+
+      trigger.addEventListener(
+        "click",
+        () => {
+
+          openGallery(
+            trigger.dataset.gallery,
+            trigger
+          );
+
+        }
+      );
+
+    });
+
+
+  /* ==================================================
+     CERRAR
+  ================================================== */
+
+  modal
+    .querySelectorAll(
+      "[data-gallery-close]"
+    )
+    .forEach(button => {
+
+      button.addEventListener(
+        "click",
+        closeGallery
+      );
+
+    });
+
+
+  /* ==================================================
+     ANTERIOR / SIGUIENTE
+  ================================================== */
+
+  prev.addEventListener(
+    "click",
+    () => {
+
+      showImage(
+        activeIndex - 1
+      );
+
+    }
+  );
+
+
+  next.addEventListener(
+    "click",
+    () => {
+
+      showImage(
+        activeIndex + 1
+      );
+
+    }
+  );
+
+
+  /* ==================================================
+     ZOOM
+  ================================================== */
+
+  zoom.addEventListener(
+    "click",
+    () => {
+
+      const zoomed =
+        imageWrap.classList.toggle(
+          "is-zoomed"
+        );
+
+
+      zoom.textContent =
+        zoomed
+          ? "Reducir"
+          : "Ampliar";
+
+
+      zoom.setAttribute(
+        "aria-label",
+        zoomed
+          ? "Reducir imagen"
+          : "Ampliar imagen"
+      );
+
+    }
+  );
+
+
+  /* También permite tocar
+     directamente la fotografía */
+
+  image.addEventListener(
+    "click",
+    () => {
+
+      zoom.click();
+
+    }
+  );
+
+
+  /* ==================================================
+     TECLADO
+  ================================================== */
+
+  document.addEventListener(
+    "keydown",
+    event => {
+
+      if (
+        !modal.classList.contains(
+          "is-open"
+        )
+      ) {
+
+        return;
+
+      }
+
+
+      if (
+        event.key ===
+        "Escape"
+      ) {
+
+        closeGallery();
+
+        return;
+
+      }
+
+
+      if (
+        event.key ===
+        "ArrowLeft"
+      ) {
+
+        showImage(
+          activeIndex - 1
+        );
+
+        return;
+
+      }
+
+
+      if (
+        event.key ===
+        "ArrowRight"
+      ) {
+
+        showImage(
+          activeIndex + 1
+        );
+
+      }
+
+    }
+  );
+
+
+  /* ==================================================
+     DESLIZAR EN IPHONE / MÓVIL
+  ================================================== */
+
+  imageWrap.addEventListener(
+    "touchstart",
+    event => {
+
+      const touch =
+        event.changedTouches[0];
+
+
+      touchStartX =
+        touch.clientX;
+
+
+      touchStartY =
+        touch.clientY;
+
+    },
+    {
+      passive:true
+    }
+  );
+
+
+  imageWrap.addEventListener(
+    "touchend",
+    event => {
+
+      /* Si está ampliada,
+         no cambiamos de foto */
+
+      if (
+        imageWrap.classList.contains(
+          "is-zoomed"
+        )
+      ) {
+
+        return;
+
+      }
+
+
+      const touch =
+        event.changedTouches[0];
+
+
+      const diffX =
+        touch.clientX -
+        touchStartX;
+
+
+      const diffY =
+        touch.clientY -
+        touchStartY;
+
+
+      /*
+        Ignoramos movimientos
+        pequeños o verticales
+      */
+
+      if (
+        Math.abs(diffX) < 45 ||
+        Math.abs(diffX) <
+        Math.abs(diffY)
+      ) {
+
+        return;
+
+      }
+
+
+      /*
+        Deslizar a la izquierda:
+        siguiente fotografía
+      */
+
+      if (diffX < 0) {
+
+        showImage(
+          activeIndex + 1
+        );
+
+      }
+
+      /*
+        Deslizar a la derecha:
+        fotografía anterior
+      */
+
+      else {
+
+        showImage(
+          activeIndex - 1
+        );
+
+      }
+
+    },
+    {
+      passive:true
+    }
+  );
+
+})();
