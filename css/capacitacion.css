@@ -7,6 +7,7 @@
     --charcoal: #2b2b26;
     --white: #ffffff;
     --line: rgba(30, 74, 59, 0.14);
+    --shadow: 0 24px 60px rgba(18, 40, 31, 0.08);
 }
 
 * {
@@ -37,107 +38,189 @@ button {
     font: inherit;
 }
 
-/* HEADER */
+/* ==================================================
+   HEADER COMPARTIDO · RECURSOS MALAK
+================================================== */
 
-.training-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(251, 249, 244, 0.94);
-    border-bottom: 1px solid var(--line);
-    backdrop-filter: blur(14px);
+.site-header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(251,249,244,.96);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--line);
 }
 
-.training-header-inner {
-    width: min(1180px, calc(100% - 48px));
-    min-height: 82px;
-    margin: 0 auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 28px;
+.header-inner{
+    width:min(1180px,calc(100% - 40px));
+    min-height:82px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:28px;
 }
 
-.training-brand {
-    flex-shrink: 0;
+.brand{
+    display:flex;
+    align-items:center;
+    flex-shrink:0;
 }
 
-.training-logo {
-    display: block;
-    width: 235px;
-    height: auto;
+.brand img{
+    display:block;
+    width:235px;
+    height:auto;
 }
 
-.training-header-nav {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-
-    font-family: "Archivo", sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--green);
+.main-nav{
+    display:flex;
+    align-items:center;
+    gap:25px;
 }
 
-.training-header-nav > a:not(.training-header-button) {
-    position: relative;
+.main-nav a{
+    font-family:"Inter",sans-serif;
+    font-size:12px;
+    font-weight:800;
+    line-height:1.2;
+    letter-spacing:0;
+    text-transform:none;
+    color:var(--green-dark);
 }
 
-.training-header-nav > a:not(.training-header-button)::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -7px;
-    width: 0;
-    height: 1px;
-    background: var(--gold);
-    transition: width 0.2s ease;
+.main-nav a:hover{
+    color:var(--gold);
 }
 
-.training-header-nav > a:not(.training-header-button):hover::after {
-    width: 100%;
+.menu-toggle{
+    display:none;
+    width:44px;
+    height:44px;
+    padding:0;
+    border:0;
+    background:transparent;
+    cursor:pointer;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
 }
 
-.training-header-button {
-    padding: 11px 16px;
-    color: var(--white);
-    background: var(--green);
+.menu-toggle span{
+    display:block;
+    width:24px;
+    height:2px;
+    border-radius:50px;
+    background:var(--green-dark);
 }
 
-.training-menu-toggle {
-    display: none;
-    width: 42px;
-    height: 42px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
+@media(max-width:700px){
 
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
+    .header-inner{
+        width:min(100% - 28px,1180px);
+        min-height:72px;
+    }
+
+    .brand img{
+        width:190px;
+    }
+
+    .menu-toggle{
+        display:flex;
+    }
+
+    .main-nav{
+        display:none;
+        position:absolute;
+        top:72px;
+        left:14px;
+        right:14px;
+        padding:12px;
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+        background:#fff;
+        border:1px solid var(--line);
+        border-radius:16px;
+        box-shadow:var(--shadow);
+    }
+
+    .main-nav.mobile-open{
+        display:flex;
+    }
+
+    .main-nav a{
+        padding:13px 11px;
+        border-bottom:1px solid var(--line);
+    }
+
+    .main-nav a:last-child{
+        border-bottom:0;
+    }
 }
 
-.training-menu-toggle span {
-    width: 22px;
-    height: 2px;
-    background: var(--green);
-    transition: transform 0.2s ease, opacity 0.2s ease;
+/* ==================================================
+   FOOTER COMPARTIDO · RECURSOS MALAK
+================================================== */
+
+.resource-footer{
+    padding:48px 0;
+    color:var(--white);
+    background:#0d1d17;
 }
 
-.training-menu-toggle.active span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+.resource-footer-inner{
+    width:min(1180px,calc(100% - 40px));
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr auto auto;
+    gap:35px;
+    align-items:center;
 }
 
-.training-menu-toggle.active span:nth-child(2) {
-    opacity: 0;
+.resource-footer-logo{
+    display:block;
+    width:230px;
+    height:auto;
+    justify-self:start;
 }
 
-.training-menu-toggle.active span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+.resource-footer p,
+.resource-footer a{
+    margin:0;
+    font-family:"Inter",sans-serif;
+    font-size:11px;
+    line-height:1.5;
+    color:rgba(255,255,255,.56);
+}
+
+.resource-footer a{
+    font-weight:700;
+    color:var(--gold);
+    white-space:nowrap;
+}
+
+.resource-footer a:hover{
+    color:var(--white);
+}
+
+@media(max-width:820px){
+    .resource-footer-inner{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+}
+
+@media(max-width:600px){
+    .resource-footer-inner{
+        width:min(100% - 32px,1180px);
+    }
+
+    .resource-footer-logo{
+        width:200px;
+    }
 }
 
 /* GLOBAL */
@@ -339,7 +422,7 @@ button {
 
 .training-section-nav {
     position: sticky;
-    top: 82px;
+    top:82px;
     z-index: 90;
 
     background: rgba(251, 249, 244, 0.96);
@@ -1332,40 +1415,6 @@ button {
     flex-wrap: wrap;
     gap: 12px;
 }
-
-/* FOOTER */
-
-.training-footer {
-    padding: 48px 0;
-    color: var(--white);
-    background: #0d1d17;
-}
-
-.training-footer-inner {
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-    gap: 35px;
-    align-items: center;
-}
-
-.training-footer-logo {
-    display: block;
-    width: 230px;
-    height: auto;
-}
-
-.training-footer p,
-.training-footer a {
-    font-size: 11px;
-    color: rgba(255, 255, 255, 0.56);
-}
-
-.training-footer a {
-    font-family: "Archivo", sans-serif;
-    font-weight: 700;
-    color: var(--gold);
-}
-
 /* RESPONSIVE */
 
 @media (max-width: 960px) {
@@ -1427,65 +1476,6 @@ button {
 }
 
 @media (max-width: 820px) {
-    html {
-        scroll-padding-top: 115px;
-    }
-
-    .training-header-inner {
-        width: min(100% - 32px, 1180px);
-        min-height: 72px;
-    }
-
-    .training-logo {
-        width: 190px;
-    }
-
-    .training-menu-toggle {
-        display: flex;
-    }
-
-    .training-header-nav {
-        display: none;
-
-        position: absolute;
-        top: 72px;
-        left: 0;
-        right: 0;
-
-        padding: 18px 22px 22px;
-
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-
-        background: var(--cream-light);
-        border-top: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
-        box-shadow: 0 18px 35px rgba(18, 40, 31, 0.12);
-    }
-
-    .training-header-nav.mobile-open {
-        display: flex;
-    }
-
-    .training-header-nav a {
-        padding: 13px 0;
-    }
-
-    .training-header-nav > a:not(.training-header-button)::after {
-        display: none;
-    }
-
-    .training-header-button {
-        margin-top: 8px;
-        padding: 13px 15px !important;
-        text-align: center;
-    }
-
-    .training-section-nav {
-        top: 72px;
-    }
-
     .training-section-nav-inner {
         width: 100%;
         justify-content: flex-start;
@@ -1542,22 +1532,13 @@ button {
         border-bottom: none;
     }
 
-    .training-footer-inner {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
 }
 
 @media (max-width: 600px) {
     .training-shell {
         width: min(100% - 32px, 1180px);
     }
-
-    .training-logo {
-        width: 165px;
-    }
-
-    .training-hero {
+.training-hero {
         padding-top: 54px;
     }
 
@@ -1723,9 +1704,6 @@ button {
         flex-direction: column;
     }
 
-    .training-footer-logo {
-        width: 200px;
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1787,4 +1765,27 @@ button {
 
 .training-hero-meta {
     display: none !important;
+}
+
+@media(max-width:700px){
+
+    html{
+        scroll-padding-top:115px;
+    }
+
+.main-nav.mobile-open{
+        display:flex;
+    }
+
+.main-nav a:last-child{
+        border-bottom:0;
+    }
+
+    .training-section-nav{
+        top:72px;
+    }
+}
+
+@media(max-width:700px){
+    .training-section-nav{ top:72px; }
 }
