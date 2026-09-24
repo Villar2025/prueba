@@ -777,3 +777,61 @@
       margin-left:24px;
     }
   }
+
+  /* Botón redondo de categorías de Hotelería */
+
+.hotel-arrow {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--green-dark);
+
+  font-size: 20px;
+  font-weight: 700;
+
+  transition: transform .2s ease,
+              background .2s ease,
+              color .2s ease;
+}
+
+.hotel-item-active:hover .hotel-arrow {
+  transform: translateX(3px);
+  background: var(--gold);
+  color: var(--green-dark);
+}
+
+/* Los que todavía no tienen catálogo */
+.hotel-arrow-disabled {
+  opacity: .28;
+}
+
+.hotel-item-active {
+  cursor: pointer;
+}
+
+.hotel-item-active{
+  color:inherit;
+  text-decoration:none;
+  cursor:pointer;
+  background:rgba(255,255,255,.035);
+}
+
+.hotel-item-active small{
+  color:#d7d38b;
+  border-color:rgba(215,211,139,.30);
+}
+
+.hotel-item-active:hover{
+  background:rgba(255,255,255,.09);
+}
+
+.hotel-item-active:hover small{
+  color:#fff;
+  border-color:rgba(255,255,255,.35);
+}
