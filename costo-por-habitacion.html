@@ -13,20 +13,22 @@
 </head>
 <body>
 <header class="site-header">
-<div class="header-inner">
-<a aria-label="Ir al inicio" class="brand" href="./index.html">
-<img alt="MALAK Distribuidora de Blancos" src="./img/logo.png"/>
-</a>
-<nav class="main-nav" id="mainNav">
-<a href="./index.html">Inicio</a>
-<a href="./catalogo.html">Catálogo</a>
-<a href="./capacitacion.html">Capacitación</a>
-<a href="./calculadora-costos-malak_1.html">Calculadora de productos</a>
-</nav>
-<button aria-expanded="false" aria-label="Abrir menú" class="menu-toggle" type="button">
-<span></span><span></span><span></span>
-</button>
-</div>
+    <div class="header-inner">
+        <a aria-label="Ir al inicio" class="brand" href="./index.html">
+            <img alt="MALAK Distribuidora de Blancos" src="./img/logo.png">
+        </a>
+
+        <nav class="main-nav" id="mainNav" aria-label="Navegación de recursos">
+            <a href="./index.html">Inicio</a>
+            <a href="./capacitacion.html#productos">Productos</a>
+            <a href="./capacitacion.html#buenas-practicas">Buenas prácticas</a>
+            <a href="./calculadora-costos-malak_1.html">Calculadora</a>
+        </nav>
+
+        <button aria-expanded="false" aria-label="Abrir menú" class="menu-toggle" type="button">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
 </header>
 <main>
 <section class="hero">
@@ -652,14 +654,17 @@
 </div>
 </section>
 </main>
-<footer class="calculator-footer">
-<div class="shell calculator-footer-inner">
-<img alt="MALAK Distribuidora de Blancos" class="calculator-footer-logo" src="./img/MALAK3.png"/>
-<p>Herramientas de apoyo para clientes hoteleros · Oaxaca</p>
-<a href="./index.html">Volver al sitio principal →</a>
-</div>
+<footer class="resource-footer">
+    <div class="resource-footer-inner">
+        <img src="./img/MALAK3.png"
+             alt="MALAK Distribuidora de Blancos"
+             class="resource-footer-logo">
+
+        <p>Herramientas de apoyo para clientes hoteleros · Oaxaca</p>
+
+        <a href="./index.html">Volver al sitio principal →</a>
+    </div>
 </footer>
 <script src="./js/costo-habitacion.js"></script>
 </body>
 </html>
-
