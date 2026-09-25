@@ -10,23 +10,23 @@
       title: "Hilasa Esencial",
       images: [
         {
-          src: "./img/catalogo/toallas/hilasa-medio-bano.png",
+          src: "./img/catalogo/toallas/toalla_01_medio_bano.png",
           alt: "Hilasa Esencial · Medio baño"
         },
         {
-          src: "./img/catalogo/toallas/hilasa-facial.png",
+          src: "./img/catalogo/toallas/toalla_02_facial.png",
           alt: "Hilasa Esencial · Facial"
         },
         {
-          src: "./img/catalogo/toallas/hilasa-pullman.png",
+          src: "./img/catalogo/toallas/toalla_03_pullman.png",
           alt: "Hilasa Esencial · Pullman"
         },
         {
-          src: "./img/catalogo/toallas/hilasa-manos.png",
+          src: "./img/catalogo/toallas/toalla_04_manos.png",
           alt: "Hilasa Esencial · Manos"
         },
         {
-          src: "./img/catalogo/toallas/hilasa-bano.png",
+          src: "./img/catalogo/toallas/toalla hilaza.png",
           alt: "Hilasa Esencial · Baño"
         }
       ]
@@ -37,15 +37,15 @@
       title: "Torzal Clásica",
       images: [
         {
-          src: "./img/catalogo/toallas/torzal-01.jpeg",
+          src: "./img/catalogo/toallas/toalla torzal.jpeg",
           alt: "Torzal Clásica MALAK · Imagen 1"
         },
         {
-          src: "./img/catalogo/toallas/torzal-02.jpeg",
+          src: "./img/catalogo/toallas/toalla torzal 2.jpeg",
           alt: "Torzal Clásica MALAK · Imagen 2"
         },
         {
-          src: "./img/catalogo/toallas/torzal-03.jpeg",
+          src: "./img/catalogo/toallas/toalla torzal 3.jpeg",
           alt: "Torzal Clásica MALAK · Imagen 3"
         }
       ]
@@ -56,15 +56,15 @@
       title: "Torzal Plus",
       images: [
         {
-          src: "./img/catalogo/toallas/torzal-plus-01.jpg",
+          src: "./img/catalogo/toallas/toalla torzal plus.jpg",
           alt: "Torzal Plus MALAK · Imagen 1"
         },
         {
-          src: "./img/catalogo/toallas/torzal-plus-02.jpeg",
+          src: "./img/catalogo/toallas/toalla torzal plus 2.jpeg",
           alt: "Torzal Plus MALAK · Imagen 2"
         },
         {
-          src: "./img/catalogo/toallas/torzal-plus-03.jpeg",
+          src: "./img/catalogo/toallas/toalla torzal plus 3.jpeg",
           alt: "Torzal Plus MALAK · Imagen 3"
         }
       ]
@@ -75,11 +75,11 @@
       title: "Egipcia",
       images: [
         {
-          src: "./img/catalogo/toallas/egipcia-01.png",
+          src: "./img/catalogo/toallas/toalla egipcia.png",
           alt: "Toalla Egipcia MALAK · Imagen 1"
         },
         {
-          src: "./img/catalogo/toallas/egipcia-02.png",
+          src: "./img/catalogo/toallas/toalla egipcia 2.png",
           alt: "Toalla Egipcia MALAK · Imagen 2"
         }
       ]
@@ -90,11 +90,11 @@
       title: "Toallas de alberca",
       images: [
         {
-          src: "./img/catalogo/toallas/alberca-01.jpeg",
+          src: "./img/catalogo/toallas/toalla alberca.jpeg",
           alt: "Toallas de alberca MALAK · Imagen 1"
         },
         {
-          src: "./img/catalogo/toallas/alberca-02.jpg",
+          src: "./img/catalogo/toallas/toalla alberca 2.jpg",
           alt: "Toallas de alberca MALAK · Imagen 2"
         }
       ]
@@ -105,11 +105,11 @@
       title: "Tapete HZ",
       images: [
         {
-          src: "./img/catalogo/toallas/tapete-01.jpg",
+          src: "./img/catalogo/toallas/tapete_medio_bano_MALAK.jpg",
           alt: "Tapete HZ MALAK · Imagen 1"
         },
         {
-          src: "./img/catalogo/toallas/tapete-02.jpg",
+          src: "./img/catalogo/toallas/tapete_medio_bano_MALAK_angulo.jpg",
           alt: "Tapete HZ MALAK · Imagen 2"
         }
       ]
