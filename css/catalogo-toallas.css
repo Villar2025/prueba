@@ -680,9 +680,7 @@ img{
   overflow:hidden;
   border:1px solid var(--line);
   border-radius:30px;
-  background:
-    radial-gradient(circle at 82% 22%,rgba(169,165,92,.10),transparent 26%),
-    linear-gradient(135deg,#fff 0%,#faf7f0 52%,#eee6d8 100%);
+  background:#fff;
   box-shadow:0 16px 42px rgba(18,40,31,.05);
 }
 
@@ -729,28 +727,12 @@ img{
 }
 
 .tapete-spec-panel{
-  padding:38px 42px 38px 34px;
+  padding:38px;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  position:relative;
-  background:transparent;
-}
-
-.tapete-spec-panel::before{
-  content:"";
-  width:1px;
-  height:72%;
-  position:absolute;
-  left:0;
-  top:14%;
-  background:linear-gradient(
-    to bottom,
-    transparent,
-    rgba(30,74,59,.15) 18%,
-    rgba(30,74,59,.15) 82%,
-    transparent
-  );
+  border-left:1px solid var(--line);
+  background:linear-gradient(145deg,#f4efe5,#ebe3d4);
 }
 
 .tapete-spec-label{
@@ -766,17 +748,19 @@ img{
 .tapete-spec-grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:24px;
-  margin-bottom:24px;
+  gap:10px;
+  margin-bottom:22px;
 }
 
 .tapete-spec-grid>div{
-  min-height:72px;
-  padding:6px 0 14px;
+  min-height:92px;
+  padding:17px;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  border-bottom:1px solid rgba(30,74,59,.16);
+  border:1px solid rgba(30,74,59,.10);
+  border-radius:17px;
+  background:rgba(255,255,255,.66);
 }
 
 .tapete-spec-grid small{
@@ -796,10 +780,13 @@ img{
 }
 
 .tapete-spec-panel .gallery-button{
-  width:100%;
+  width:auto;
+  min-width:145px;
+  max-width:190px;
   min-height:44px;
-  background:rgba(255,255,255,.72);
-  backdrop-filter:blur(6px);
+  padding:0 16px;
+  align-self:flex-start;
+  background:#fff;
 }
 
 
@@ -987,6 +974,7 @@ img{
   justify-content:center;
   overflow:hidden;
   overscroll-behavior:contain;
+  cursor:zoom-in;
 }
 
 .gallery-image-wrap img{
@@ -996,15 +984,12 @@ img{
   max-height:100%;
   object-fit:contain;
   object-position:center;
-  transform:scale(1);
-  transform-origin:center;
-  transition:transform .2s ease;
-  cursor:zoom-in;
 }
 
 .gallery-image-wrap.is-zoomed{
   overflow:auto;
   display:block;
+  cursor:zoom-out;
 }
 
 .gallery-image-wrap.is-zoomed img{
@@ -1015,7 +1000,6 @@ img{
   min-width:150%;
   min-height:150%;
   object-fit:contain;
-  transform:none;
   cursor:zoom-out;
 }
 
@@ -1321,21 +1305,7 @@ img{
   .tapete-spec-panel{
     padding:24px;
     border-left:0;
-    border-top:0;
-  }
-
-  .tapete-spec-panel::before{
-    width:calc(100% - 48px);
-    height:1px;
-    left:24px;
-    top:0;
-    background:linear-gradient(
-      to right,
-      transparent,
-      rgba(30,74,59,.15) 18%,
-      rgba(30,74,59,.15) 82%,
-      transparent
-    );
+    border-top:1px solid var(--line);
   }
 
   .tapete-spec-grid{
