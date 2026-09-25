@@ -6,17 +6,39 @@
     ================================================== */
   
     const galleries = {
-  
+
       imperial: {
         title: "Colcha Imperial",
-        images: []
+        images: [
+          {
+            src: "./img/catalogo/colchas/imperial gris.jpeg",
+            alt: "Colcha Imperial gris MALAK"
+          },
+          {
+            src: "./img/catalogo/colchas/imperial blanca.jpeg",
+            alt: "Colcha Imperial blanca MALAK"
+          }
+        ]
       },
-  
+    
       burdeos: {
         title: "Colcha Burdeos",
-        images: []
+        images: [
+          {
+            src: "./img/catalogo/colchas/VERDE.jpeg",
+            alt: "Colcha Burdeos verde MALAK"
+          },
+          {
+            src: "./img/catalogo/colchas/GRIS OXFORD.jpg",
+            alt: "Colcha Burdeos gris Oxford MALAK"
+          },
+          {
+            src: "./img/catalogo/colchas/BEIGE.jpeg",
+            alt: "Colcha Burdeos beige MALAK"
+          }
+        ]
       }
-  
+    
     };
   
   
