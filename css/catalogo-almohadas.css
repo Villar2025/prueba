@@ -454,6 +454,10 @@
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:12px;
   }
+
+  .pillow-card:last-child:nth-child(odd){
+    grid-column:1 / -1;
+  }
   
   .pillow-card{
     min-height:245px;
@@ -563,10 +567,117 @@
     color:var(--gold);
   }
   
+
+  /* MEMORY FOAM */
+
+  .memory-section{
+    padding:92px 0;
+    background:
+      radial-gradient(circle at 88% 15%,rgba(169,165,92,.12),transparent 24%),
+      var(--green-dark);
+    color:#fff;
+  }
+
+  .memory-heading{
+    margin-bottom:38px;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(300px,.58fr);
+    gap:52px;
+    align-items:end;
+  }
+
+  .memory-heading h2{
+    max-width:760px;
+    margin:0;
+    font-family:"Archivo",sans-serif;
+    font-size:clamp(40px,5vw,60px);
+    line-height:1;
+    letter-spacing:-.045em;
+    color:#fff;
+  }
+
+  .memory-heading>p{
+    margin:0;
+    font-size:14px;
+    line-height:1.72;
+    color:rgba(255,255,255,.62);
+  }
+
+  .memory-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+  }
+
+  .memory-card{
+    min-height:255px;
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    border:1px solid rgba(255,255,255,.11);
+    border-radius:24px;
+    background:rgba(255,255,255,.055);
+    backdrop-filter:blur(10px);
+  }
+
+  .memory-card-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+  }
+
+  .memory-number{
+    font-family:"Archivo",sans-serif;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.08em;
+    color:var(--gold);
+  }
+
+  .memory-type{
+    padding:7px 10px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:999px;
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.72);
+  }
+
+  .memory-card h3{
+    margin:32px 0 8px;
+    font-family:"Archivo",sans-serif;
+    font-size:34px;
+    letter-spacing:-.04em;
+    color:#fff;
+  }
+
+  .memory-measure{
+    display:block;
+    font-family:"Archivo",sans-serif;
+    font-size:20px;
+    color:rgba(255,255,255,.74);
+  }
+
+  .memory-card .gallery-button{
+    margin-top:auto;
+    align-self:flex-start;
+    border-color:rgba(255,255,255,.20);
+    background:rgba(255,255,255,.08);
+    color:#fff;
+  }
+
+  .memory-card .gallery-button:hover{
+    border-color:rgba(255,255,255,.40);
+    background:rgba(255,255,255,.12);
+  }
+
   /* VISUAL CLOSURE */
   
   .rest-section{
-    padding:0 0 94px;
+    padding:72px 0 94px;
     background:#fff;
   }
   
@@ -757,8 +868,9 @@
   .gallery-image-wrap{
     width:100%;
     height:100%;
-    display:grid;
-    place-items:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     overflow:hidden;
     cursor:zoom-in;
   }
@@ -772,13 +884,17 @@
   .gallery-image-wrap img{
     width:100%;
     height:100%;
+    max-width:100%;
+    max-height:100%;
     object-fit:contain;
+    object-position:center;
   }
   
   .gallery-image-wrap.is-zoomed img{
     width:auto;
     height:auto;
     max-width:none;
+    max-height:none;
     min-width:150%;
     min-height:150%;
     object-fit:contain;
@@ -953,6 +1069,10 @@
   
     .product-grid{
       grid-template-columns:1fr;
+    }
+
+    .pillow-card:last-child:nth-child(odd){
+      grid-column:auto;
     }
   
     .pillows-footer-inner{
