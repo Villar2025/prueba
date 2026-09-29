@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Baja de correo | MALAK</title>
+
+  <style>
+    :root {
+      --green: #1e4a3b;
+      --green-dark: #12281f;
+      --gold: #a9a55c;
+      --cream: #f7f3e9;
+      --cream-light: #fbf9f4;
+      --charcoal: #2b2b26;
+      --white: #ffffff;
+      --line: rgba(30, 74, 59, .14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: var(--cream);
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--charcoal);
+    }
+
+    .card {
+      width: 100%;
+      max-width: 560px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      padding: 48px 36px;
+      text-align: center;
+    }
+
+    .logo {
+      margin-bottom: 8px;
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      color: var(--green);
+    }
+
+    .subtitle {
+      margin-bottom: 38px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: 30px;
+      line-height: 1.15;
+      color: var(--green);
+    }
+
+    p {
+      margin: 0 auto 28px;
+      max-width: 430px;
+      font-size: 15px;
+      line-height: 1.75;
+      color: #62625c;
+    }
+
+    button {
+      border: 0;
+      padding: 16px 24px;
+      background: var(--green);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: var(--green-dark);
+    }
+
+    .line {
+      width: 42px;
+      height: 2px;
+      margin: 32px auto 0;
+      background: var(--gold);
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="card">
+
+    <div class="logo">
+      MALAK
+    </div>
+
+    <div class="subtitle">
+      Blancos para hotelería · Oaxaca
+    </div>
+
+
+    <section id="confirmar">
+
+      <h1>
+        ¿Deseas dejar de recibir nuestros correos?
+      </h1>
+
+      <p>
+        Al confirmar, dejarás de recibir promociones y novedades
+        de MALAK por correo electrónico.
+        Tus preferencias de WhatsApp no cambiarán.
+      </p>
+
+      <form
+        id="unsubscribe-form"
+        method="POST"
+      >
+
+        <button type="submit">
+          Confirmar baja
+        </button>
+
+      </form>
+
+    </section>
+
+
+    <section
+      id="exito"
+      class="hidden"
+    >
+
+      <h1>
+        Baja confirmada
+      </h1>
+
+      <p>
+        Ya no recibirás promociones por correo electrónico de MALAK.
+        Tus demás preferencias permanecen sin cambios.
+      </p>
+
+    </section>
+
+
+    <section
+      id="ya-baja"
+      class="hidden"
+    >
+
+      <h1>
+        Ya estás dado de baja
+      </h1>
+
+      <p>
+        Tu correo ya no se encuentra suscrito a las promociones
+        y novedades de MALAK.
+      </p>
+
+    </section>
+
+
+    <section
+      id="error"
+      class="hidden"
+    >
+
+      <h1>
+        Enlace no válido
+      </h1>
+
+      <p>
+        No pudimos encontrar la información necesaria para
+        procesar esta solicitud.
+      </p>
+
+    </section>
+
+
+    <div class="line"></div>
+
+  </main>
+
+
+  <script>
+
+    const params =
+      new URLSearchParams(
+        window.location.search
+      );
+
+
+    const token =
+      params.get("token");
+
+
+    const estado =
+      params.get("estado");
+
+
+    const confirmar =
+      document.getElementById("confirmar");
+
+    const exito =
+      document.getElementById("exito");
+
+    const yaBaja =
+      document.getElementById("ya-baja");
+
+    const error =
+      document.getElementById("error");
+
+    const form =
+      document.getElementById("unsubscribe-form");
+
+
+    function ocultarTodo() {
+
+      confirmar.classList.add("hidden");
+
+      exito.classList.add("hidden");
+
+      yaBaja.classList.add("hidden");
+
+      error.classList.add("hidden");
+
+    }
+
+
+    if (estado === "ok") {
+
+      ocultarTodo();
+
+      exito.classList.remove("hidden");
+
+    }
+
+    else if (estado === "ya") {
+
+      ocultarTodo();
+
+      yaBaja.classList.remove("hidden");
+
+    }
+
+    else if (estado === "error") {
+
+      ocultarTodo();
+
+      error.classList.remove("hidden");
+
+    }
+
+    else if (!token) {
+
+      ocultarTodo();
+
+      error.classList.remove("hidden");
+
+    }
+
+    else {
+
+      form.action =
+        "https://xxeoeqxtkiorhzpgwmlr.supabase.co/functions/v1/baja-email-malak?token="
+        + encodeURIComponent(token);
+
+    }
+
+  </script>
+
+</body>
+</html>
